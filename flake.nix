@@ -15,12 +15,28 @@
     in {
       inherit systems;
 
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        lib,
+        ...
+      }: let
+        font = {type}: pkg: "${pkg}/share/fonts/${type}";
+
+        TrueTypeFont = font {type = "truetype";};
+        OpenTypeFont = font {type = "opentype";};
+      in {
         devShells.default = pkgs.mkShell {
           nativeBuildInputs = with pkgs; [
+            gnumake
             typst
             typstyle
           ];
+
+          env.TYPST_FONT_PATHS = lib.concatStringsSep ":" (with pkgs; [
+            (TrueTypeFont roboto)
+            (OpenTypeFont font-awesome)
+            (OpenTypeFont source-sans-pro)
+          ]);
         };
         formatter = pkgs.alejandra;
       };
