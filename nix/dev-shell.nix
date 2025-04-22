@@ -14,12 +14,8 @@
     OpenTypeFont = font {type = "opentype";};
   in {
     devShells.default = pkgs.mkShell {
-      nativeBuildInputs = with pkgs;
-        [
-          gnumake
-          typst
-          typstyle
-        ]
+      nativeBuildInputs =
+        [pkgs.typst]
         ++ pre-commit.settings.enabledPackages;
 
       env.TYPST_FONT_PATHS = lib.concatStringsSep ":" (with pkgs; [
