@@ -37,10 +37,6 @@ _NOTE_: typst warnings should be ignored for now as they are coming from the ups
 
 formats both nix and typst code
 
-### TODO
-
-pre-commit hooks (integreated into flake-parts)
-
 ## Credits
 
 - [Paul Tsouchlos's](https://github.com/DeveloperPaul123) for modern-cv template
