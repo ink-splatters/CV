@@ -8,6 +8,7 @@
       check.enable = true;
 
       settings.hooks = {
+        alejandra.enable = true;
         deadnix.enable = true;
         markdownlint = {
           enable = true;
@@ -16,8 +17,8 @@
           };
         };
         nil.enable = true;
-        alejandra.enable = true;
         statix.enable = true;
+        typstyle.enable = true;
       };
     };
 
