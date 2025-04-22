@@ -7,35 +7,78 @@ Personal CV based on [modern-cv](https://typst.app/universe/package/modern-cv) t
 
 ### Preqrequisites
 
-[nix](https://nixos.org/download) or [lix](https://lix.systems) (alternative nix implementation)
+- [nix](https://nixos.org/download) or [lix](https://lix.systems) (alternative nix implementation)
+- nix [experimental features](https://nix.dev/manual/nix/2.18/contributing/experimental-features)
+`nix-command` and `flake` enabled
+- optionally: [`direnv`](https://direnv.net) to make dev environment persistent
 
-### Enter development shell
+### Development shell
+
+#### Entering shell
 
 ```sh
-❯ nix --extra-experimental-features 'nix-command flakes' develop
+❯ nix develop
 ```
 
-### Generating CV
+or alternatively, if using `direnv` and it hasn't been previously initialized for the repo:
+
+```sh
+❯ direnv allow .
+```
+
+_NOTE_: the above command also sets up pre-commit hooks (see below)
+
+#### Generating CV
 
 ```sh
 ❯ make
 ```
 
-or alternatively, to open the generated PDF after generation (at least on macOS)
+or alternatively, to open the PDF after its generation (at least on macOS):
 
 ```sh
 ❯ make open
 ```
 
-_NOTE_: typst warnings should be ignored for now as they are coming from the upstream.
+_NOTE:_ typst warnings should be ignored for now as they are coming from the upstream.
 
-### Formatting
+#### Formatting
+
+to format both nix and typst code:
 
 ```sh
 ❯ make fmt
 ```
 
-formats both nix and typst code
+### pre-commit hooks support
+
+#### Installation
+
+_NOTE_: if not using `direnv` (or haven't run `direnv allow .`), pre-commit hooks
+MUST be explicitly installed using:
+
+```sh
+❯ nix run .#install-hooks
+```
+
+### Configuration
+
+The hooks are configured in `nix/pre-commit.nix`
+
+_NOTE_: the changes in this file are not observed until the hooks are reinstalled using
+the mentioned command. It's also highly recommended to clean the repo **before** doing the above:
+
+```sh
+❯ git clean -fdx
+```
+
+however, mind the consequences: **all untracked files in the project source tree will be erased, forever**
+
+#### Running the checks explicitly
+
+```sh
+❯ nix flake check
+```
 
 ## Credits
 
