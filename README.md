@@ -1,4 +1,4 @@
-## CV
+# CV
 
 Personal CV based on [modern-cv](https://typst.app/universe/package/modern-cv) typst template
 (port of LaTeX [Awesome CV](https://github.com/posquit0/Awesome-CV))
