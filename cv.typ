@@ -343,7 +343,7 @@ solutions.
 
 #resume-entry(
   title: "Senior Software Engineer",
-  location: "Haarlem, Netherlands",
+  location: "Amsterdam, Netherlands",
   date: "Jan 2018 – Oct 2019",
   description: "HVR Software (acquired by Fivetran)",
 )
