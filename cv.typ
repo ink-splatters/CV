@@ -53,20 +53,17 @@ solutions.
 
 = Skills
 
-#resume-skill-item(
-  "Systems Design",
-  (
-    "scalability",
-    "HA/fault tolerance",
-    "CAP trade-offs",
-    "event driven architectures",
-    "caching",
-    "sharding",
-    "load balancing",
-    "state management and storage",
-    "microservices",
-  ),
-)
+#resume-skill-item("Systems Design", (
+  "scalability",
+  "HA/fault tolerance",
+  "CAP trade-offs",
+  "event driven architectures",
+  "caching",
+  "sharding",
+  "load balancing",
+  "state management and storage",
+  "microservices",
+))
 
 #resume-skill-item(
   "Languages",
@@ -74,195 +71,160 @@ solutions.
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item(
-  "go",
-  (
-    "gin",
-    "fiber",
-    "echo",
-    "zap/slog",
-    "gomock",
-  ),
-)
-#resume-skill-item(
-  "python",
-  (
-    "click",
-    "typer",
-    "paho(mqtt)",
-    "celery",
-    "LLM deployment",
-    "numpy",
-    "scikit-learn",
-    "seaborn",
-    "Django",
-    "FastAPI",
-    "uvicorn",
-    "pyo3/maturin",
-    "numba",
-    "nuitka",
-  ),
-)
-#resume-skill-item(
-  "c++23",
-  (
-    "boost",
-    "flatbuffers",
-    "cap'n'proto",
-    "seastar(scylladb)",
-    "cmake",
-    "meson",
-  ),
-)
-#resume-skill-item(
-  "JVM",
-  (
-    "Java",
-    "Kotlin",
-    "Groovy",
-    "Spring / Boot",
-    "Hibernate",
-    "NIO",
-  ),
-)
-#resume-skill-item(
-  "SCM, CI/CD, IaC",
-  (
-    "GitHub / Enterprise / Actions",
-    "GitLab",
-    "Terraform",
-    "Azure Templates",
-    "Cloud Formation",
-    "Pulumi",
-    "NixOps",
-    "nixidy",
-    "terranix",
-    "CMake/ninja",
-    "meson",
-    "bazel",
-    "maven",
-    "gradle",
-  ),
-)
+#resume-skill-item("go", (
+  "gin",
+  "fiber",
+  "echo",
+  "zap/slog",
+  "gomock",
+))
+#resume-skill-item("python", (
+  "click",
+  "typer",
+  "paho(mqtt)",
+  "celery",
+  "LLM deployment",
+  "numpy",
+  "scikit-learn",
+  "seaborn",
+  "Django",
+  "FastAPI",
+  "uvicorn",
+  "pyo3/maturin",
+  "numba",
+  "nuitka",
+))
+#resume-skill-item("c++23", (
+  "boost",
+  "flatbuffers",
+  "cap'n'proto",
+  "seastar(scylladb)",
+  "cmake",
+  "meson",
+))
+#resume-skill-item("JVM", (
+  "Java",
+  "Kotlin",
+  "Groovy",
+  "Spring / Boot",
+  "Hibernate",
+  "NIO",
+))
+#resume-skill-item("SCM, CI/CD, IaC", (
+  "GitHub / Enterprise / Actions",
+  "GitLab",
+  "Terraform",
+  "Azure Templates",
+  "Cloud Formation",
+  "Pulumi",
+  "NixOps",
+  "nixidy",
+  "terranix",
+  "CMake/ninja",
+  "meson",
+  "bazel",
+  "maven",
+  "gradle",
+))
 #resume-skill-item(
   "Cloud Native",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item(
-  "compute",
-  (
-    "Azure VM",
-    "AKS",
-    "EKS",
-    "ECS",
-    "EC2",
-    "GCE",
-    "GKE",
-  ),
-)
-#resume-skill-item(
-  "serverless",
-  (
-    "Azure Functions",
-    "AWS Lambda",
-    "GCF",
-    "CloudFlare workers",
-  ),
-)
-#resume-skill-item(
-  "storage/query",
-  (
-    "ABS",
-    "ASD",
-    "CosmosDB",
-    "S3",
-    "RDS",
-    "DynamoDB",
-    "GCS",
-    "CloudSQL",
-  ),
-)
-#resume-skill-item(
-  "IAM/IdPs",
-  (
-    "AAD(enterprise)",
-    "RBAC (Azure)",
-    "IAM",
-    "KMS (AWS & GCP)",
-    "Amazon Cognito",
-    "Auth0",
-  ),
-)
-#resume-skill-item(
-  "build pipelines",
-  (
-    "DevOps Pipelines",
-    "CodePipeline",
-    "CodeBuild",
-    "Ops agent",
-    "GCO",
-  ),
-)
-#resume-skill-item(
-  "observability",
-  (
-    "Azure Monitor / App Insights",
-    "AWS CloudWatch",
-    "Prometheus",
-    "Grafana LGTM",
-    "OTLP",
-    "Elasticsearch",
-    "Jaeger",
-    "Zipkin",
-  ),
-)
+#resume-skill-item("compute", (
+  "Azure VM",
+  "AKS",
+  "EKS",
+  "ECS",
+  "EC2",
+  "GCE",
+  "GKE",
+))
+#resume-skill-item("serverless", (
+  "Azure Functions",
+  "AWS Lambda",
+  "GCF",
+  "CloudFlare workers",
+))
+#resume-skill-item("storage/query", (
+  "ABS",
+  "ASD",
+  "CosmosDB",
+  "S3",
+  "RDS",
+  "DynamoDB",
+  "GCS",
+  "CloudSQL",
+))
+#resume-skill-item("IAM/IdPs", (
+  "AAD(enterprise)",
+  "RBAC (Azure)",
+  "IAM",
+  "KMS (AWS & GCP)",
+  "Amazon Cognito",
+  "Auth0",
+))
+#resume-skill-item("build pipelines", (
+  "DevOps Pipelines",
+  "CodePipeline",
+  "CodeBuild",
+  "Ops agent",
+  "GCO",
+))
+#resume-skill-item("observability", (
+  "Azure Monitor / App Insights",
+  "AWS CloudWatch",
+  "Prometheus",
+  "Grafana LGTM",
+  "OTLP",
+  "Elasticsearch",
+  "Jaeger",
+  "Zipkin",
+))
 #resume-skill-item(
   "Security",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item(
-  "",
-  (
-    "OWASP top 10 / secure-by-design principles",
-    "PoLP",
-    "RBAC",
-    "data segregation",
-    "secure access",
-    "continuus vuln scanning / alerting (grype",
-    "clair",
-    "trivy",
-    "SonarQube)",
-    "intrusion detection / active perimeter / endpoint security (google santa",
-    "AIDE)",
-  ),
-)
+#resume-skill-item("", (
+  "OWASP top 10 / secure-by-design principles",
+  "PoLP",
+  "RBAC",
+  "data segregation",
+  "secure access",
+  "continuus vuln scanning / alerting (grype",
+  "clair",
+  "trivy",
+  "SonarQube)",
+  "intrusion detection / active perimeter / endpoint security (google santa",
+  "AIDE)",
+))
 #resume-skill-item(
   "",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item(
-  "Databases",
-  (
-    "PostgreSQL",
-    "Cassandra",
-    "MongoDB",
-    "QuestDB and more, including Cloud Native options",
-  ),
-)
-#resume-skill-item(
-  "Data processing",
-  ("FLiP (Flink + NiFi + Pulsar)", "Kafka Streaming", "Airflow"),
-)
-#resume-skill-item(
-  "Trivial frontends",
-  ("Typescript", "React / Router", "Vite", "Tailwind CSS", "Axios"),
-)
+#resume-skill-item("Databases", (
+  "PostgreSQL",
+  "Cassandra",
+  "MongoDB",
+  "QuestDB and more, including Cloud Native options",
+))
+#resume-skill-item("Data processing", (
+  "FLiP (Flink + NiFi + Pulsar)",
+  "Kafka Streaming",
+  "Airflow",
+))
+#resume-skill-item("Trivial frontends", (
+  "Typescript",
+  "React / Router",
+  "Vite",
+  "Tailwind CSS",
+  "Axios",
+))
 #pagebreak()
 
 
@@ -337,7 +299,8 @@ solutions.
   - Centric role in large cloud platform migration project (from AWS to Azure with substantial scratch-rewrite in modern c++, from former Java/Scala)
   - Scratch-written Modern c++ framework and related micro-service template featuring protobuf DSL as API first class citizen, popularizing its use also for REST APIs to avoid buggy (back then) OpenAPI generators
   - Ensured scalability under variable loads, minimizing downtime via parallel migration.
-  - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)\ \
+  - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)
+  - Built scalable tooling and participated in sensitive customer data migration\ \
   Tools: ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, conan, cmake, ninja, grpc-gateway, go, AKS, Azure Application Insights, Terraform
 ]
 
@@ -349,6 +312,7 @@ solutions.
 )
 #resume-item[
   Worked on high performance online data replication system, also called HVR (features and bugfixing)
+  - Worked on product core (log based replication engine)
   - Reversed Oracle histogram data to build custom sharding functionality
   - Rewrote a Python transpiler, cutting execution from 65 seconds to 5 seconds, speeding up CI/CD.
   - Built a Go REST service for cloud integration.\ \
