@@ -1,23 +1,19 @@
-# Source and output files
-TYP := cv.typ
-PDF := cv.pdf
+.PHONY: all clean fmt format open letter-open
 
-# Guard function to ensure nix-shell environment
-define check-nix-env
-	$(if $(IN_NIX_SHELL),,$(error Run 'nix develop' first))
-endef
+TYP := cv.typ cover-letter.typ
+PDF := cv.pdf cover-letter.pdf
 
-# Build the PDF from Typst source
-$(PDF): $(TYP)
-	@$(check-nix-env)
+%.pdf: %.typ
 	typst compile $< $@
 
 .PHONY: build
 build: $(PDF) ## build PDF
 
-.PHONY: open
-open: ## open PDF
-	open $(PDF)
+open: cv.pdf
+	open cv.pdf
+
+letter-open: cover-letter.pdf
+	open cover-letter.pdf
 
 .PHONY: all
 all: build open ## build and open PDF
