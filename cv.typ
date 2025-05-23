@@ -34,11 +34,24 @@
   header-font: "Source Sans Pro", // Updated to match installed fonts
 )
 
+#set list(marker: ([•], [-]))
+
+
+#let my-resume-skill-section(item, skills) = {
+  resume-skill-item(text(item, fill: rgb("#282f93")), skills)
+}
+
+#let my-resume-skill-item(item, skills) = {
+  resume-skill-item(
+    text(item, weight: "medium", size: 11pt, fill: rgb("#282f93")),
+    skills,
+  )
+}
+
 
 = About
 
-High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems
-for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
+High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
 solutions.
 
 
@@ -53,9 +66,14 @@ solutions.
 
 = Skills
 
-#resume-skill-item("Systems Design", (
+#my-resume-skill-section("Systems architecture", (
+  "computer and modern OS architecture",
+  "memory model and concurrency",
+  "networking",
   "scalability",
-  "HA/fault tolerance",
+  "HA",
+  "fault tolerance",
+  "distributed consensus",
   "CAP trade-offs",
   "event driven architectures",
   "caching",
@@ -64,45 +82,57 @@ solutions.
   "state management and storage",
   "microservices",
 ))
-
-#resume-skill-item(
-  "Languages",
+#my-resume-skill-section(
+  "Dev stacks",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item("go", (
+#my-resume-skill-item("Go", (
   "gin",
   "fiber",
   "echo",
   "zap/slog",
   "gomock",
 ))
-#resume-skill-item("python", (
-  "click",
-  "typer",
-  "paho(mqtt)",
+#my-resume-skill-item("JS/TypeScript", (
+  "React",
+  "Auth.js",
+  "tRPC",
+  "Prisma",
+  "Vite",
+  "Tailwind CSS",
+  "Axios",
+))
+#my-resume-skill-item("Python", (
+  "FastAPI",
+  "FastUI",
+  "Flask",
+  "uvicorn",
+  "TortoiseORM",
+  "SQLAlchemy",
   "celery",
-  "LLM deployment",
+  "paho",
+  "pytest/pytest-mock",
   "numpy",
   "scikit-learn",
   "seaborn",
-  "Django",
-  "FastAPI",
-  "uvicorn",
   "pyo3/maturin",
-  "numba",
-  "nuitka",
 ))
-#resume-skill-item("c++23", (
+#my-resume-skill-item("C++23", (
   "boost",
   "flatbuffers",
   "cap'n'proto",
   "seastar(scylladb)",
-  "cmake",
-  "meson",
 ))
-#resume-skill-item("JVM", (
+#my-resume-skill-item("Rust", (
+  "Hyper",
+  "Reqwest",
+  "Diesel",
+  "Ring",
+  "Dalek (ECC)",
+))
+#my-resume-skill-item("JVM", (
   "Java",
   "Kotlin",
   "Groovy",
@@ -110,29 +140,32 @@ solutions.
   "Hibernate",
   "NIO",
 ))
-#resume-skill-item("SCM, CI/CD, IaC", (
-  "GitHub / Enterprise / Actions",
-  "GitLab",
-  "Terraform",
-  "Azure Templates",
-  "Cloud Formation",
-  "Pulumi",
-  "NixOps",
-  "nixidy",
-  "terranix",
-  "CMake/ninja",
-  "meson",
-  "bazel",
-  "maven",
-  "gradle",
+
+#my-resume-skill-item("Build Systems", (
+  "Nix",
+  "CMake",
+  "ninja",
+  "Maven",
+  "Meson",
+  "Bazel
+  ",
 ))
-#resume-skill-item(
+#my-resume-skill-section(
   "Cloud Native",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item("compute", (
+#my-resume-skill-item("IAM/IdPs", (
+  "AAD(enterprise)",
+  "RBAC (Azure)",
+  "IAM",
+  "KMS (AWS & GCP)",
+  "Amazon Cognito",
+  "Auth0",
+))
+#my-resume-skill-item("Orchestration", (
+  "Kubernetes",
   "Azure VM",
   "AKS",
   "EKS",
@@ -141,38 +174,29 @@ solutions.
   "GCE",
   "GKE",
 ))
-#resume-skill-item("serverless", (
+#my-resume-skill-item("Serverless", (
   "Azure Functions",
   "AWS Lambda",
   "GCF",
   "CloudFlare workers",
 ))
-#resume-skill-item("storage/query", (
-  "ABS",
-  "ASD",
-  "CosmosDB",
-  "S3",
-  "RDS",
-  "DynamoDB",
-  "GCS",
-  "CloudSQL",
+#my-resume-skill-item("IaC", (
+  "Terraform",
+  "Azure Templates",
+  "Cloud Formation",
 ))
-#resume-skill-item("IAM/IdPs", (
-  "AAD(enterprise)",
-  "RBAC (Azure)",
-  "IAM",
-  "KMS (AWS & GCP)",
-  "Amazon Cognito",
-  "Auth0",
+
+#my-resume-skill-item("CI/CD & GitOps", (
+  "JenkinsX",
+  "GitHub Actions",
+  "GitLab CI/CD",
+  "ArgoCD",
+  "Flux",
+  "Azure DevOps",
+  "AWS CodeBuild & CodePipeline",
 ))
-#resume-skill-item("build pipelines", (
-  "DevOps Pipelines",
-  "CodePipeline",
-  "CodeBuild",
-  "Ops agent",
-  "GCO",
-))
-#resume-skill-item("observability", (
+
+#my-resume-skill-item("Observability", (
   "Azure Monitor / App Insights",
   "AWS CloudWatch",
   "Prometheus",
@@ -180,53 +204,105 @@ solutions.
   "OTLP",
   "Elasticsearch",
   "Jaeger",
-  "Zipkin",
+  "Zipkin
+  ",
 ))
-#resume-skill-item(
-  "Security",
+#my-resume-skill-section(
+  "Data Systems",
   (
     "___________________________________________________________________________________",
   ),
 )
-#resume-skill-item("", (
-  "OWASP top 10 / secure-by-design principles",
-  "PoLP",
-  "RBAC",
-  "data segregation",
-  "secure access",
-  "continuus vuln scanning / alerting (grype",
-  "clair",
-  "trivy",
-  "SonarQube)",
-  "intrusion detection / active perimeter / endpoint security (google santa",
-  "AIDE)",
-))
-#resume-skill-item(
-  "",
-  (
-    "___________________________________________________________________________________",
-  ),
-)
-#resume-skill-item("Databases", (
+#my-resume-skill-item("DBMS", (
   "PostgreSQL",
+  "MySQL",
   "Cassandra",
   "MongoDB",
-  "QuestDB and more, including Cloud Native options",
+  "QuestDB",
+  "ASD",
+  "CosmosDB",
+  "RDS",
+  "DynamoDB",
+  "GCS",
+  "CloudSQL",
 ))
-#resume-skill-item("Data processing", (
-  "FLiP (Flink + NiFi + Pulsar)",
-  "Kafka Streaming",
-  "Airflow",
+#my-resume-skill-item("KV-store", (
+  "etcd",
+  "Redis",
+  "RocksDB",
+  "Valkey",
+  "Memcached",
 ))
-#resume-skill-item("Trivial frontends", (
-  "Typescript",
-  "React / Router",
-  "Vite",
-  "Tailwind CSS",
-  "Axios",
+#my-resume-skill-item("Block storage", (
+  "S3 / Minio",
+  "ABS",
 ))
-#pagebreak()
+#my-resume-skill-item("Queueing", (
+  "RabbitMQ",
+  "ActiveMQ",
+  "Kafka
+  ",
+))
+#my-resume-skill-section(
+  "DevSecOps",
+  (
+    "___________________________________________________________________________________",
+  ),
+)
 
+#my-resume-skill-item("", (
+  "Continuous Security",
+  "OWASP Top-10",
+  "Secure-by-Design",
+  "Zero Trust",
+  "PoLP",
+  "RBAC",
+  "Tenant Isolation",
+  "Intrusion Detection
+
+  ",
+))
+
+#my-resume-skill-section(
+  "Cryptography",
+  (
+    "___________________________________________________________________________________",
+  ),
+)
+
+#my-resume-skill-item("Basics", (
+  "PKI",
+  "Crypto hashes",
+  "Symmetric (block) ciphers",
+  "KDFs",
+))
+
+#my-resume-skill-item("ECC", (
+  "ECC / Curve25519",
+  "ECDH",
+  "EdDSA",
+  "Ristretto",
+  "Bulletproofs",
+  "Pedersen Commitments",
+  "Ring Signatures",
+  "ZK-SNARKS / STARKS",
+))
+
+#my-resume-skill-section(
+  "Data processing",
+  (
+    "___________________________________________________________________________________",
+  ),
+)
+
+#my-resume-skill-section("", (
+  "FLiP (Flink + NiFi + Pulsar)",
+  "Kafka (Streaming)",
+  "Airflow",
+  "DuckDB",
+))
+
+#par("", spacing: 10pt)
 
 = Project Highlights
 
@@ -237,20 +313,35 @@ solutions.
   description: "Hobby Project (Partially Sponsored)",
 )
 #resume-item[
-  Designed and build PoC of HFT matching engine using C++23, SIMD intrinsics, and Go for management APIs with strong focus on ultra-low latency and customization\ \
+  Designed and build PoC of HFT matching engine using C++23, SIMD intrinsics, and Go for management APIs with strong focus on ultra-low latency and customization\
   Tools: C++23, Go, Cap’n Proto, SIMD intrinsics
 ]
 
 #resume-entry(
   title: "Feature flags transpiler",
-  location: "Haarlem, The Netherlands",
+  location: "Amsterdam, The Netherlands",
   date: "2018 - 2019",
   description: "HVR Software",
 )
 #resume-item[
   - Scratch-rewrote advanced feature flags transpiller for DSL with pattern matching and multiple inheritance of entities, reducing its runtime for an order of magnitude (5 sec vs 60-70 sec) which resulted in measurable gains for R&D team and saving of build infra costs, as the tool was at the hot path of tens of CI/CD pipelines running 24x7
   - Extended the functionality, making it possible to use the mentioned DSL as a single source of truth for documentation generation purposes.\
-  Tools: Python\ \
+  Tools: Python
+]
+
+#resume-entry(
+  title: "Zero-to-one generator of CRUD apps",
+  location: "Haarlem, Netherlands",
+  date: "Nov 2019 – Sep 2021",
+  description: "AIMMS B.V.",
+)
+#resume-item[
+  Wrote generator of CRUD apps from declarative schema which helped to drastically reduce R&D costs of internal tooling:
+  - OOB OAuth support
+  - two generator backends:
+    - Python/FastAPI/FastUI (CRUD generator)
+    - Typescript/tRPC + Prisma + React\
+  Tools: Python, TortoiseORM, FastAPI, FastAPI Users (OAuth), FastUI, Typescript, React, tRPC, Prisma, Auth.js
 ]
 
 #resume-entry(
@@ -265,7 +356,6 @@ solutions.
   - multi-platform support\
 
   The work required deep dive into freetype and Qt internals. It was eventually shipped as part of My Office app suite for Tizen (mobile embedded Linux from Samsung), on millions of Tizen devices in South Asia\ \
-
   Tools: c++14, boost, freetype, Qt, various native rendering backends
 ]
 
@@ -278,15 +368,31 @@ solutions.
   date: "2022 - ",
   description: "Freelance / contracting",
 )
-#resume-item[
-  Contractor / freelancer working on multiple projects:
 
-  - Deliverect, full cycle restaurant business automation PaaS: integrated extra dimensions to Ordering facility (Python, Eve, celery, GKE)
-  - Ahold Delhaize (Albert Hijn): online data ingestion platform for internal compliance project, related to R&D efficiency and performance (Go, AKS, Strimzi operator (Kafka), GitOps (ArgoCD), Terraform)
-  - Private customer: online data ingestion of Taxi terminals data for compliance project to prevent fraud from a driver side (Go, AKS, Kafka, Postgres)
-  - LEGO: building internal IAM / IdP functionality (Azure Functions, Azure SAML identity provider, Python)
-  - Private customer: cloud based video conversion service (c++20, cmake, ninja, go, grpc-gateway, ffmpeg, nix, terraform(terranix), EKS, Cloudwatch)
-  - Private customer: custom video calls service (c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible)
+#[
+  #set par(spacing: 1.5em)
+  #resume-item[
+    Contractor / freelancer working on multiple projects:
+
+    - Deliverect, full cycle restaurant business automation PaaS: integrated extra dimensions to Ordering facility\
+      Tools: Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend)\
+
+    - Ahold Delhaize (Albert Hijn): online data ingestion platform for internal compliance project, related to R&D efficiency and performance\
+      Tools: Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Terraform\
+
+    - Private customer: online data ingestion of Taxi terminals data for compliance project to prevent fraud from a driver side\
+      Tools: Go, Kubernetes (AKS), Kafka, Postgres\
+
+    - LEGO: building internal IAM / IdP functionality\
+      Tools: Azure Functions, Azure SAML identity provider, Python
+
+    - Private customer: cloud based video conversion service\
+      Tools: c++20, cmake, ninja, go, grpc-gateway, ffmpeg, nix, terraform(terranix), EKS, CloudWatch\
+
+    - Private customer: custom video calls service\
+      Tools: c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
+  ]
+
 ]
 
 #resume-entry(
@@ -300,8 +406,9 @@ solutions.
   - Scratch-written Modern c++ framework and related micro-service template featuring protobuf DSL as API first class citizen, popularizing its use also for REST APIs to avoid buggy (back then) OpenAPI generators
   - Ensured scalability under variable loads, minimizing downtime via parallel migration.
   - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)
-  - Built scalable tooling and participated in sensitive customer data migration\ \
-  Tools: ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, conan, cmake, ninja, grpc-gateway, go, AKS, Azure Application Insights, Terraform
+  - Built scalable tooling and participated in sensitive customer data migration
+  - Wrote low-code generator of CRUD apps from declarative schema, used for administrative and other internal tools; bringing measurable R&D cost reduction\
+  Tools: ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform
 ]
 
 #resume-entry(
@@ -315,7 +422,7 @@ solutions.
   - Worked on product core (log based replication engine)
   - Reversed Oracle histogram data to build custom sharding functionality
   - Rewrote a Python transpiler, cutting execution from 65 seconds to 5 seconds, speeding up CI/CD.
-  - Built a Go REST service for cloud integration.\ \
+  - Built a Go REST service for cloud integration.\
   Tools: C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histrogram internals), Airlow
 ]
 
@@ -328,7 +435,7 @@ solutions.
 #resume-item[
   Worked on Mapscape NDS (navigation data standard) compiler:
   - implemented parts of NDS compiler backend related to parsing raw map data
-  - introduced parallelism in parsing raw map data, significantly speeding it up\ \
+  - introduced parallelism in parsing raw map data, significantly speeding it up\
   Tools: c++ 11 / 14 / boost / gtest / sqlite / shell / python / Airflow
 ]
 
@@ -342,8 +449,8 @@ solutions.
   My Office project: on-prem office solution featuring collaboration engine"
   - work on core functionality (features and bugfixing)
   - scratch-written `freetype` based cross-platform font rendering engine with subpixel positioning and antialiasing support
-  - Work on spreadsheets for Samsung Tizen (embedded linux)\ \
-  Tools: c++14, cmake, emscripten, Objective C, Qt, SWIG and more
+  - Work on spreadsheets for Samsung Tizen (embedded linux)\
+  Tools: c++14, cmake, emscripten, Objective C, Qt, SWIG, Kubernetes
 ]
 
 #resume-entry(
@@ -357,7 +464,7 @@ solutions.
   - scratch-written c++11 / asio framework and a few microservices (and their ownership)
   - multi-stage fault tolerant transactions
   - operating mission critical distributed system and managing risks of direct loss via using append-only faul-tolerant custom storage, two-factor transactions, implenentig circuit breaking, proper alerting, extensive testing
-  - zero-to-one release the thing into production as joint effort of 3 engineers excercising high degree of code ownership (on subsystem level)\ \
+  - zero-to-one release the thing into production as joint effort of 3 engineers excercising high degree of code ownership (on subsystem level)\
   Tools: c++11, Core Java, Groovy, Ruby(Chef)
 ]
 
@@ -366,7 +473,3 @@ solutions.
   date: "2005 - 2014",
   description: "available upon request",
 )
-
-
-= Interests
-Low-latency / high performance systems, platform development, reproducible builds, reverse engineering, offsec
