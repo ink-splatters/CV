@@ -17,12 +17,10 @@
   author: (
     firstname: "Peter",
     lastname: "Asanov",
-    email: "ink.splatters@pm.me",
-    github: "github.com/ink-splatters",
-    linkedin: "linkedin.com/in/peter-asanov",
-    phone: "+31629598355",
-    address: "Amsterdam, Netherlands",
-    positions: ("Senior Software Engineer",),
+    positions: (
+      "Senior Software Engineer",
+      "DevSecOps",
+    ),
   ),
   profile-picture: none,
   date: datetime.today().display("[month repr:long] [day], [year]"),
