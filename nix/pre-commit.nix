@@ -14,6 +14,7 @@
           enable = true;
           settings.configuration = {
             MD013.line_length = 100;
+            MD059.prohibited_texts = [];
           };
         };
         nil.enable = true;
