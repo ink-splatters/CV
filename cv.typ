@@ -49,9 +49,11 @@
 
 = About
 #text(weight: "light")[
-  High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
-  solutions.
+  High-impact professional with 20 years' experience, specializing in high-performance distributed systems and real-time applications. Proven track record in building low-latency, mission-critical systems including HFT solutions and financial transaction platforms. Strong focus on performance optimization and system reliability.
 ]
+
+High-impact professional with 20 years' experience, specializing in high-performance distributed systems and real-time applications. Proven track record in building low-latency, mission-critical systems including HFT solutions and financial transaction platforms. Strong focus on performance optimization and system reliability.
+>>>>>>> c5511b9 (rebased with upstream)
 
 #par(spacing: 1.0em)[]
 
@@ -66,6 +68,17 @@
 #par(spacing: 1.0em)[]
 
 = Skills
+
+#my-resume-skill-section("High Performance Computing", (
+  "low-latency systems",
+  "real-time processing",
+  "HFT systems development",
+  "performance optimization",
+  "memory management",
+  "SIMD optimization",
+  "lock-free algorithms",
+  "hardware acceleration",
+))
 
 #my-resume-skill-section("Systems architecture", (
   "computer and modern OS architecture",
@@ -83,19 +96,33 @@
   "state management and storage",
   "microservices",
 ))
+
 #my-resume-skill-section(
-  "Dev stacks",
+  "Core Technologies",
   (
     "___________________________________________________________________________________",
   ),
 )
-#my-resume-skill-item("Go", (
-  "gin",
-  "fiber",
-  "echo",
-  "zap/slog",
-  "gomock",
+
+#my-resume-skill-item("C++23", (
+  "boost",
+  "flatbuffers",
+  "cap'n'proto",
+  "seastar(scylladb)",
+  "lock-free data structures",
+  "SIMD intrinsics",
 ))
+
+#my-resume-skill-item("Python", (
+  "FastAPI",
+  "numpy",
+  "scikit-learn",
+  "pandas",
+  "pyo3/maturin",
+  "asyncio",
+  "uvloop",
+))
+
 #my-resume-skill-item("JS/TypeScript", (
   "React",
   "Auth.js",
@@ -104,27 +131,6 @@
   "Vite",
   "Tailwind CSS",
   "Axios",
-))
-#my-resume-skill-item("Python", (
-  "FastAPI",
-  "FastUI",
-  "Flask",
-  "uvicorn",
-  "TortoiseORM",
-  "SQLAlchemy",
-  "celery",
-  "paho",
-  "pytest/pytest-mock",
-  "numpy",
-  "scikit-learn",
-  "seaborn",
-  "pyo3/maturin",
-))
-#my-resume-skill-item("C++23", (
-  "boost",
-  "flatbuffers",
-  "cap'n'proto",
-  "seastar(scylladb)",
 ))
 #my-resume-skill-item("Rust", (
   "Hyper",
@@ -149,7 +155,7 @@
   "Maven",
   "Meson",
   "Bazel
-  ",
+",
 ))
 #my-resume-skill-section(
   "Cloud Native",
@@ -314,7 +320,7 @@
 )
 #resume-item[
   Designed and build PoC of HFT matching engine using C++23, SIMD intrinsics, and Go for management APIs with strong focus on ultra-low latency and customization\
-  Tools: C++23, Go, Cap’n Proto, SIMD intrinsics
+  Tools: C++23, Go, Cap'n Proto, SIMD intrinsics
 ]
 
 #resume-entry(
