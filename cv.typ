@@ -36,7 +36,6 @@
 
 #set list(marker: ([•], [-]))
 
-
 #let my-resume-skill-section(item, skills) = {
   resume-skill-item(text(item, fill: rgb("#282f93")), skills)
 }
@@ -48,12 +47,12 @@
   )
 }
 
-
 = About
 
 High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
 solutions.
 
+#par(spacing: 1.0em)[]
 
 = Education
 #resume-entry(
@@ -63,6 +62,7 @@ solutions.
   description: "Novosibirsk State Technical University (NSTU)",
 )
 
+#par(spacing: 1.0em)[]
 
 = Skills
 
@@ -243,6 +243,7 @@ solutions.
   "Kafka
   ",
 ))
+#pagebreak()
 #my-resume-skill-section(
   "DevSecOps",
   (
@@ -302,7 +303,7 @@ solutions.
   "DuckDB",
 ))
 
-#par("", spacing: 10pt)
+#par(spacing: 1.0em)[]
 
 = Project Highlights
 
@@ -359,6 +360,7 @@ solutions.
   Tools: c++14, boost, freetype, Qt, various native rendering backends
 ]
 
+#par(spacing: 1.0em)[]
 
 = Work Experience
 
