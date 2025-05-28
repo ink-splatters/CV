@@ -52,9 +52,6 @@
   High-impact professional with 20 years' experience, specializing in high-performance distributed systems and real-time applications. Proven track record in building low-latency, mission-critical systems including HFT solutions and financial transaction platforms. Strong focus on performance optimization and system reliability.
 ]
 
-High-impact professional with 20 years' experience, specializing in high-performance distributed systems and real-time applications. Proven track record in building low-latency, mission-critical systems including HFT solutions and financial transaction platforms. Strong focus on performance optimization and system reliability.
->>>>>>> c5511b9 (rebased with upstream)
-
 #par(spacing: 1.0em)[]
 
 = Education
@@ -155,7 +152,7 @@ High-impact professional with 20 years' experience, specializing in high-perform
   "Maven",
   "Meson",
   "Bazel
-",
+  ",
 ))
 #my-resume-skill-section(
   "Cloud Native",
@@ -249,7 +246,7 @@ High-impact professional with 20 years' experience, specializing in high-perform
   "ActiveMQ",
   "Kafka",
 ))
-#pagebreak()
+
 #my-resume-skill-section(
   "DevSecOps",
   (
@@ -308,7 +305,7 @@ High-impact professional with 20 years' experience, specializing in high-perform
   ",
 ))
 
-#par(spacing: 1.0em)[]
+#par(spacing: 1.5em)[]
 
 = Project Highlights
 
