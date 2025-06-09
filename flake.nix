@@ -36,7 +36,11 @@
       inherit systems;
 
       perSystem = {pkgs, ...}: {
-        formatter = pkgs.alejandra;
+        formatter = pkgs.writeShellScriptBin "fmt-all" ''
+          ${pkgs.alejandra}/bin/alejandra .
+          echo "running typstyle..."
+          ${pkgs.typstyle}/bin/typstyle -i .
+        '';
       };
     });
 }
