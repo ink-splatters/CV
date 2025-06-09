@@ -48,9 +48,10 @@
 }
 
 = About
-
-High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
-solutions.
+#text(weight: "light")[
+  High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
+  solutions.
+]
 
 #par(spacing: 1.0em)[]
 
@@ -240,8 +241,7 @@ solutions.
 #my-resume-skill-item("Queueing", (
   "RabbitMQ",
   "ActiveMQ",
-  "Kafka
-  ",
+  "Kafka",
 ))
 #pagebreak()
 #my-resume-skill-section(
@@ -259,9 +259,7 @@ solutions.
   "PoLP",
   "RBAC",
   "Tenant Isolation",
-  "Intrusion Detection
-
-  ",
+  "Intrusion Detection",
 ))
 
 #my-resume-skill-section(
@@ -300,7 +298,8 @@ solutions.
   "FLiP (Flink + NiFi + Pulsar)",
   "Kafka (Streaming)",
   "Airflow",
-  "DuckDB",
+  "DuckDB
+  ",
 ))
 
 #par(spacing: 1.0em)[]
