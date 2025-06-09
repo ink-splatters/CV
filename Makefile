@@ -1,4 +1,4 @@
-.PHONY: all clean fmt open letter-open
+.PHONY: all clean fmt format open letter-open
 
 TYP := cv.typ cover-letter.typ
 PDF := cv.pdf cover-letter.pdf
@@ -18,5 +18,7 @@ clean:
 	rm -f $(PDF)
 
 fmt:
-	nix fmt .
-	typstyle . -i
+	nix fmt $(CURDIR)
+	typstyle $(CURDIR) -i
+format: fmt
+
