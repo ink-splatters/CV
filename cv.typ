@@ -67,21 +67,16 @@
 
 = Skills
 
-#my-resume-skill-section("Systems architecture", (
-  "computer and modern OS architecture",
-  "memory model and concurrency",
+#my-resume-skill-section("Distributed Systems", (
+  "architecture & Design",
+  "concurrency & memory models",
   "networking",
-  "scalability",
-  "HA",
-  "fault tolerance",
-  "distributed consensus",
-  "CAP trade-offs",
-  "event driven architectures",
-  "caching",
-  "sharding",
-  "load balancing",
-  "state management and storage",
-  "microservices",
+  "scalability & HA",
+  "fault Tolerance & resilience",
+  "consensus protocols (Paxos, Raft)",
+  "CAP Trade-offs",
+  "event-driven systems",
+  "storage & caching",
 ))
 #my-resume-skill-section(
   "Dev stacks",
@@ -91,8 +86,6 @@
 )
 #my-resume-skill-item("Go", (
   "gin",
-  "fiber",
-  "echo",
   "zap/slog",
   "gomock",
 ))
@@ -107,15 +100,16 @@
 ))
 #my-resume-skill-item("Python", (
   "FastAPI",
-  "FastUI",
-  "Flask",
   "uvicorn",
-  "TortoiseORM",
   "SQLAlchemy",
   "celery",
   "paho",
   "pytest/pytest-mock",
   "numpy",
+  "pandas",
+  "polars",
+  "PySpark",
+  "MLflow",
   "scikit-learn",
   "seaborn",
   "pyo3/maturin",
@@ -124,19 +118,15 @@
   "boost",
   "flatbuffers",
   "cap'n'proto",
-  "seastar(scylladb)",
 ))
 #my-resume-skill-item("Rust", (
   "Hyper",
   "Reqwest",
-  "Diesel",
-  "Ring",
-  "Dalek (ECC)",
+  "clap",
 ))
 #my-resume-skill-item("JVM", (
   "Java",
   "Kotlin",
-  "Groovy",
   "Spring / Boot",
   "Hibernate",
   "NIO",
@@ -148,9 +138,9 @@
   "ninja",
   "Maven",
   "Meson",
-  "Bazel
-  ",
+  "Bazel",
 ))
+#par(spacing: 1.0em)[]
 #my-resume-skill-section(
   "Cloud Native",
   (
@@ -166,14 +156,11 @@
   "Auth0",
 ))
 #my-resume-skill-item("Orchestration", (
-  "Kubernetes",
+  "Kubernetes (AKS / EKS / GKE)",
   "Azure VM",
-  "AKS",
-  "EKS",
   "ECS",
   "EC2",
   "GCE",
-  "GKE",
 ))
 #my-resume-skill-item("Serverless", (
   "Azure Functions",
@@ -183,16 +170,15 @@
 ))
 #my-resume-skill-item("IaC", (
   "Terraform",
+  "Bicep",
   "Azure Templates",
   "Cloud Formation",
 ))
 
 #my-resume-skill-item("CI/CD & GitOps", (
-  "JenkinsX",
   "GitHub Actions",
   "GitLab CI/CD",
   "ArgoCD",
-  "Flux",
   "Azure DevOps",
   "AWS CodeBuild & CodePipeline",
 ))
@@ -205,9 +191,19 @@
   "OTLP",
   "Elasticsearch",
   "Jaeger",
-  "Zipkin
-  ",
+  "Zipkin",
 ))
+#my-resume-skill-item("DevSecOps", (
+  "Continuous Security",
+  "OWASP Top-10",
+  "Secure-by-Design",
+  "Zero Trust",
+  "PoLP",
+  "RBAC",
+  "Tenant Isolation",
+  "Intrusion Detection",
+))
+#par(spacing: 1.0em)[]
 #my-resume-skill-section(
   "Data Systems",
   (
@@ -220,7 +216,6 @@
   "Cassandra",
   "MongoDB",
   "QuestDB",
-  "ASD",
   "CosmosDB",
   "RDS",
   "DynamoDB",
@@ -243,24 +238,16 @@
   "ActiveMQ",
   "Kafka",
 ))
-#pagebreak()
-#my-resume-skill-section(
-  "DevSecOps",
-  (
-    "___________________________________________________________________________________",
-  ),
-)
 
-#my-resume-skill-item("", (
-  "Continuous Security",
-  "OWASP Top-10",
-  "Secure-by-Design",
-  "Zero Trust",
-  "PoLP",
-  "RBAC",
-  "Tenant Isolation",
-  "Intrusion Detection",
+#my-resume-skill-item("Big Data", (
+  "Apache Spark",
+  "FLiP (Flink + NiFi + Pulsar)",
+  "Kafka (Streaming)",
+  "Airflow",
+  "DuckDB
+  ",
 ))
+#pagebreak()
 
 #my-resume-skill-section(
   "Cryptography",
@@ -287,78 +274,6 @@
   "ZK-SNARKS / STARKS",
 ))
 
-#my-resume-skill-section(
-  "Data processing",
-  (
-    "___________________________________________________________________________________",
-  ),
-)
-
-#my-resume-skill-section("", (
-  "FLiP (Flink + NiFi + Pulsar)",
-  "Kafka (Streaming)",
-  "Airflow",
-  "DuckDB
-  ",
-))
-
-#par(spacing: 1.0em)[]
-
-= Project Highlights
-
-#resume-entry(
-  title: "Low-Latency Matching Engine Prototype",
-  location: none,
-  date: "Aug 2023 – Dec 2023",
-  description: "Hobby Project (Partially Sponsored)",
-)
-#resume-item[
-  Designed and build PoC of HFT matching engine using C++23, SIMD intrinsics, and Go for management APIs with strong focus on ultra-low latency and customization\
-  Tools: C++23, Go, Cap’n Proto, SIMD intrinsics
-]
-
-#resume-entry(
-  title: "Feature flags transpiler",
-  location: "Amsterdam, The Netherlands",
-  date: "2018 - 2019",
-  description: "HVR Software",
-)
-#resume-item[
-  - Scratch-rewrote advanced feature flags transpiller for DSL with pattern matching and multiple inheritance of entities, reducing its runtime for an order of magnitude (5 sec vs 60-70 sec) which resulted in measurable gains for R&D team and saving of build infra costs, as the tool was at the hot path of tens of CI/CD pipelines running 24x7
-  - Extended the functionality, making it possible to use the mentioned DSL as a single source of truth for documentation generation purposes.\
-  Tools: Python
-]
-
-#resume-entry(
-  title: "Zero-to-one generator of CRUD apps",
-  location: "Haarlem, Netherlands",
-  date: "Nov 2019 – Sep 2021",
-  description: "AIMMS B.V.",
-)
-#resume-item[
-  Wrote generator of CRUD apps from declarative schema which helped to drastically reduce R&D costs of internal tooling:
-  - OOB OAuth support
-  - two generator backends:
-    - Python/FastAPI/FastUI (CRUD generator)
-    - Typescript/tRPC + Prisma + React\
-  Tools: Python, TortoiseORM, FastAPI, FastAPI Users (OAuth), FastUI, Typescript, React, tRPC, Prisma, Auth.js
-]
-
-#resume-entry(
-  title: "Font rendering engine",
-  description: "New Cloud Technologies",
-  date: "2014 - 2017",
-)
-#resume-item[
-  High performance font rendering engine for scalable document layouts featuring
-  - subpixel positioning
-  - multi-level cache
-  - multi-platform support\
-
-  The work required deep dive into freetype and Qt internals. It was eventually shipped as part of My Office app suite for Tizen (mobile embedded Linux from Samsung), on millions of Tizen devices in South Asia\ \
-  Tools: c++14, boost, freetype, Qt, various native rendering backends
-]
-
 #par(spacing: 1.0em)[]
 
 = Work Experience
@@ -373,25 +288,30 @@
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Contractor / freelancer working on multiple projects:
+    Contractor / freelancer working on multiple projects, with strong focus on platform engineering and
+    cloud infrastructure:
 
     - Deliverect, full cycle restaurant business automation PaaS: integrated extra dimensions to Ordering facility\
-      Tools: Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend)\
+      #text(weight: "semibold")[Tools:] Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend)\
 
     - Ahold Delhaize (Albert Hijn): online data ingestion platform for internal compliance project, related to R&D efficiency and performance\
-      Tools: Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Terraform\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Terraform\
 
     - Private customer: online data ingestion of Taxi terminals data for compliance project to prevent fraud from a driver side\
-      Tools: Go, Kubernetes (AKS), Kafka, Postgres\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS), Kafka, Postgres\
 
     - LEGO: building internal IAM / IdP functionality\
-      Tools: Azure Functions, Azure SAML identity provider, Python
+      #text(weight: "semibold")[Tools:] Azure Functions, Azure SAML identity provider, Python
 
     - Private customer: cloud based video conversion service\
-      Tools: c++20, cmake, ninja, go, grpc-gateway, ffmpeg, nix, terraform(terranix), EKS, CloudWatch\
+      #text(weight: "semibold")[Tools:] c++20, cmake, ninja, go, grpc-gateway, ffmpeg, nix, terraform(terranix), EKS, CloudWatch\
 
     - Private customer: custom video calls service\
-      Tools: c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
+      #text(weight: "semibold")[Tools:] c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
+
+    - Petproject [in development]: Pluggable and configuratble HFT matching engine with focus on high performance / ultra-lowlatency. Possible applications: high volume / low latency crypto exchanges, arbitrage bots.\
+      #text(weight: "semibold")[Tools:] c++23 with extense usage of SIMD intrinsics, Cap'n Proto, go
+
   ]
 
 ]
@@ -405,12 +325,14 @@
 #resume-item[
   - Centric role in large cloud platform migration project (from AWS to Azure with substantial scratch-rewrite in modern c++, from former Java/Scala)
   - Scratch-written Modern c++ framework and related micro-service template featuring protobuf DSL as API first class citizen, popularizing its use also for REST APIs to avoid buggy (back then) OpenAPI generators
-  - Ensured scalability under variable loads, minimizing downtime via parallel migration.
   - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)
   - Built scalable tooling and participated in sensitive customer data migration
   - Wrote low-code generator of CRUD apps from declarative schema, used for administrative and other internal tools; bringing measurable R&D cost reduction\
-  Tools: ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform
+  #text(weight: "semibold")[Tools:] ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform\
+
+  #text(weight: "semibold")[Achievements:] tackled cost-efficiency and throughput predictability of compute-heavy optimization workloads (with non-deterministic convergence) by implementing Kubernetes-native solutions: bin packing via resource requests/limits and affinity rules, priority classes, and a pre-warmed spare node strategy using Cluster Autoscaler and taints/tolerations.
 ]
+
 
 #resume-entry(
   title: "Senior Software Engineer",
@@ -422,9 +344,13 @@
   Worked on high performance online data replication system, also called HVR (features and bugfixing)
   - Worked on product core (log based replication engine)
   - Reversed Oracle histogram data to build custom sharding functionality
-  - Rewrote a Python transpiler, cutting execution from 65 seconds to 5 seconds, speeding up CI/CD.
+
   - Built a Go REST service for cloud integration.\
-  Tools: C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histrogram internals), Airlow
+  #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histrogram internals), Airlow
+
+  #text(weight: "semibold")[Achievements:]
+  Rewrote a core feature flag transpiler used in HVR’s CI/CD pipeline, cutting runtime from over 1 minute to 5 seconds.\
+  This order-of-magnitude speedup on a critical build path significantly improved developer experience and delivered measurable infrastructure cost savings.
 ]
 
 #resume-entry(
@@ -437,7 +363,7 @@
   Worked on Mapscape NDS (navigation data standard) compiler:
   - implemented parts of NDS compiler backend related to parsing raw map data
   - introduced parallelism in parsing raw map data, significantly speeding it up\
-  Tools: c++ 11 / 14 / boost / gtest / sqlite / shell / python / Airflow
+  #text(weight: "semibold")[Tools:] c++ 11 / 14 / boost / gtest / sqlite / shell / python / Airflow
 ]
 
 #resume-entry(
@@ -448,10 +374,12 @@
 )
 #resume-item[
   My Office project: on-prem office solution featuring collaboration engine"
-  - work on core functionality (features and bugfixing)
-  - scratch-written `freetype` based cross-platform font rendering engine with subpixel positioning and antialiasing support
-  - Work on spreadsheets for Samsung Tizen (embedded linux)\
-  Tools: c++14, cmake, emscripten, Objective C, Qt, SWIG, Kubernetes
+  - work on core functionality (features and bugfixing) and on spreadsheets client for Tizen OS
+
+  #text(weight: "semibold")[Tools:] c++14, cmake, emscripten, Objective C, Qt, SWIG, Kubernetes\
+  #text(weight: "semibold")[Achievements:]
+  - Independently built a cross-platform freetype-based font rendering engine with subpixel positioning for scalable document layouts; overcame technical depth and low project visibility to successfully drive integration into a large enterprise codebase.\
+  - developed advanced spreadsheet UX for Samsung Tizen (embedded Linux), designing a declarative, compile-time state machine to avoid dynamic dispatch overhead and enable precise editing—resolving edge cases, free of bugs present back then in competitors' suites (e.g. Google Docs)
 ]
 
 #resume-entry(
@@ -466,7 +394,10 @@
   - multi-stage fault tolerant transactions
   - operating mission critical distributed system and managing risks of direct loss via using append-only faul-tolerant custom storage, two-factor transactions, implenentig circuit breaking, proper alerting, extensive testing
   - zero-to-one release the thing into production as joint effort of 3 engineers excercising high degree of code ownership (on subsystem level)\
-  Tools: c++11, Core Java, Groovy, Ruby(Chef)
+  #text(weight: "semibold")[Tools:] c++11, Core Java, Groovy, Ruby(Chef)\
+  #text(weight: "semibold")[Achievements:]\
+  - designed and implemented all C++11 microservices for crypto exchange banking facility, including a multi-stage, fault-tolerant transaction system and circuit breaker with (semi-)automatic rollbacks.\
+  - delivered under pressure, a zero-to-one production launch in under 2 months alongside with one more person (Java developer), with personal accountability driving rigorous testing and system reliability under financial risk.
 ]
 
 #resume-entry(
