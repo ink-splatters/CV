@@ -16,6 +16,7 @@ letter-open: cover-letter.pdf
 
 clean:
 	rm -f $(PDF)
+	rm -f $(TYP)
 
 fmt:
 	nix fmt $(CURDIR)
