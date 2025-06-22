@@ -11,7 +11,7 @@ all: $(PDF)
 open: cv.pdf
 	open cv.pdf
 clean:
-	rm -f $(PDF)
+	rm -f $(PDF) $(TYP)
 fmt:
 	nix fmt $(CURDIR)
 	typstyle $(CURDIR) -i
