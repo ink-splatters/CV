@@ -16,6 +16,5 @@ clean:
 
 fmt:
 	nix fmt $(CURDIR)
-	typstyle $(CURDIR) -i
 format: fmt
 

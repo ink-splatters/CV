@@ -29,18 +29,11 @@
     in {
       imports = [
         inputs.git-hooks.flakeModule
-        ./nix/pre-commit.nix
         ./nix/dev-shell.nix
+        ./nix/formatter.nix
+        ./nix/pre-commit.nix
       ];
 
       inherit systems;
-
-      perSystem = {pkgs, ...}: {
-        formatter = pkgs.writeShellScriptBin "fmt-all" ''
-          ${pkgs.alejandra}/bin/alejandra .
-          echo "running typstyle..."
-          ${pkgs.typstyle}/bin/typstyle -i .
-        '';
-      };
     });
 }
