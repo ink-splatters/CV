@@ -247,7 +247,6 @@
   "DuckDB
   ",
 ))
-#pagebreak()
 
 #my-resume-skill-section(
   "Cryptography",
