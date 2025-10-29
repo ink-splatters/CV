@@ -37,12 +37,17 @@
 #set list(marker: ([•], [-]))
 
 #let my-resume-skill-section(item, skills) = {
-  resume-skill-item(text(item, fill: rgb("#282f93")), skills)
+  resume-skill-item(align(right, text(item, fill: rgb("#282f93"))), skills)
 }
 
 #let my-resume-skill-item(item, skills) = {
   resume-skill-item(
-    text(item, weight: "medium", size: 11pt, fill: rgb("#282f93")),
+    align(right, text(
+      item,
+      weight: "medium",
+      size: 11pt,
+      fill: rgb("#282f93"),
+    )),
     skills,
   )
 }
