@@ -1,5 +1,5 @@
-#import "@preview/modern-cv:0.8.0": *
-#import "@preview/fontawesome:0.5.0": *
+#import "@preview/modern-cv:0.9.0": *
+#import "@preview/fontawesome:0.6.0": *
 
 // Define colors from awesome-cv
 #let color-darknight = rgb("#131A28")
