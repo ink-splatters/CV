@@ -6,7 +6,7 @@ PDF := cv.pdf
 $(PDF): $(TYP)
 	typst compile $< $@
 
-all: $(PDF)
+all: $(PDF) open
 
 open: $(PDF)
 	open $(PDF)
@@ -16,5 +16,6 @@ clean:
 
 fmt:
 	nix fmt $(CURDIR)
+
 format: fmt
 
