@@ -103,7 +103,7 @@
 ))
 #my-resume-skill-item("Python", (
   "FastAPI",
-  "magnum",
+  "mangum",
   "uvicorn",
   "SQLAlchemy",
   "celery",
@@ -298,7 +298,7 @@
 
     #text(weight: "semibold")[Platform:] AWS Lambda / Step Functions, SQS, DynamoDB, S3, Cognito IdP and authorizers, API Gateway, moto/uvicorn (local mocking)
 
-    #text(weight: "semibold")[Tools:] cdk, TypeScript, Python 3.12+, magnum, uv, ruff, ty, pytest, pytest-mock, go (sidecar)
+    #text(weight: "semibold")[Tools:] cdk, TypeScript, Python 3.12+, mangum, uv, ruff, ty, pytest, pytest-mock, go (sidecar)
 
     #text(weight: "semibold")[Achievements:]
     - via sophisticated algorithmic approaches, removed the large portion of headaches and need for hackwork when menus change
