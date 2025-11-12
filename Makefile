@@ -18,4 +18,3 @@ fmt:
 	nix fmt $(CURDIR)
 
 format: fmt
-

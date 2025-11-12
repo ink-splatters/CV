@@ -1,9 +1,12 @@
 {
   perSystem = {
     config,
+    inputs',
     pkgs,
     ...
-  }: {
+  }: let
+    inherit (inputs'.bake.packages) bake;
+  in {
     pre-commit = {
       check.enable = true;
 
@@ -20,6 +23,29 @@
         nil.enable = true;
         statix.enable = true;
         typstyle.enable = true;
+
+        # Makefile validation and formatting
+        mbake-validate = {
+          enable = true;
+          name = "mbake validate";
+          description = "Run 'mbake validate' for Makefile validation";
+          entry = "mbake validate";
+          types = ["makefile"];
+          require_serial = true;
+          pass_filenames = true;
+          extraPackages = [bake];
+        };
+
+        mbake-format = {
+          enable = true;
+          name = "mbake format";
+          description = "Run 'mbake format' for Makefile formatting";
+          entry = "mbake format";
+          types = ["makefile"];
+          require_serial = true;
+          pass_filenames = true;
+          extraPackages = [bake];
+        };
       };
     };
 

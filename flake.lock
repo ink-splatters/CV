@@ -1,5 +1,32 @@
 {
   "nodes": {
+    "bake": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1762981577,
+        "narHash": "sha256-Gb3Dc0bvK+Iv+fdBuJVM6W8/3Wd3nlYW4Y4w94wsadU=",
+        "owner": "ink-splatters",
+        "repo": "bake",
+        "rev": "52695e978c9e54d29dfe53f460af8a4ca8ed04c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ink-splatters",
+        "ref": "v1.4.3+20251112",
+        "repo": "bake",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -97,6 +124,7 @@
     },
     "root": {
       "inputs": {
+        "bake": "bake",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
         "nixpkgs": "nixpkgs",
