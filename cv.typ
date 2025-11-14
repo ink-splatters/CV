@@ -275,35 +275,34 @@
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Given fast-paced startup environment and reporting directly to key stateholders, worked on bits of critical backend infrastructure for pioneers of accurate, fast, and reliable voice technology for drive-thrus.\ \
+    Worked on backend infrastructure for voice AI drive-thru platform, reporting directly to founders under tight deadlines.\ \
 
-    1. Bidirectional integration with multi-channel order management platform as service provider (DSP) for menu ingestion and order processing workflows.
+    1. Streamorders.com platform integration as DSP. OAuth2.0 server and location management API
     #pad(left: 1.5em)[
-
-      Owned (designed and shipped) AWS-backed multi-tenant event-driven serverless infrastructure (IaC), with strong focus on
-      correctness, reproducible deployments and rich observability, facilitating shortest incident response times; supporting:
+      Implemented AWS-backed serverless integration infrastructure with focus on observability, rapid iteration and state of the art security:
     ]
     #pad(left: 1.5em)[
-      - fully managed OAuth2.0 server for partners onboarding and authorization
-      - menu ingestion and storage
-      - event driven substrate for orders handling
-      - workarounds for issues on partners' side like transformers handling RFC 6749 incompliant OAuth2.0 client
+      "OAuth 2.0 authorization code flow with AWS Cognito + PKCE, including custom handlers to work around partner's RFC 6749 non-compliant client (e.g. missing redirect_uri in token requests, custom URIs)
+      - correlation ID system (nonce-based) for end-to-end distributed tracing across authorize/token/webhook flows
+      - multi-tenant location management API with DynamoDB repository pattern and AWS X-Ray integration
+      - stable stack architecture with CDK to minimize redeployment cycles (avoiding 15-40min Cognito CloudFront reprovisioning)
+      - comprehensive observability: X-Ray distributed tracing, correlation IDs in logs/headers, Lambda Powertools, EventBridge + SQS for OAuth event monitoring
     ]
 
-    2. POS menu mappers to in-house menu formats: tree based and flat (RAG-friendly, deduplication-focused).
+    2. POS menu transformation system - hierarchical mapper for Redcat POS integration
 
     #pad(left: 1.5em)[
-      Built sophisticated algorithmics transforms that handled ambigous data structures, poor data quality (e.g. flattened graphs with invalid IDs, orphaned references) and canonicalization (e.g. rerooting/rearrangement of item modifiers).
+      Developed hierarchical menu transformation system converting flattened POS data into nested structures, handling data quality issues (ambiguity, circular dependencies, orphaned references), achieving reproducibility withstanding minor upstream changes, and with minimal usage of heuristics; targeting dual schema system (nested + flattened - for RAG)
     ]
 
-    #text(weight: "semibold")[Platform:] AWS Lambda / Step Functions, SQS, DynamoDB, S3, Cognito IdP and authorizers, API Gateway, moto/uvicorn (local mocking)
+    #text(weight: "semibold")[Platform:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK (IaC)
 
-    #text(weight: "semibold")[Tools:] cdk, TypeScript, Python 3.12+, mangum, uv, ruff, ty, pytest, pytest-mock, go (sidecar)
+    #text(weight: "semibold")[Tools:] TypeScript, Python 3.12+, Pydantic, FastAPI, mangum, moto, pytest/pytest-asyncio, vitest, httpx, uv
 
     #text(weight: "semibold")[Achievements:]
-    - via sophisticated algorithmic approaches, removed the large portion of headaches and need for hackwork when menus change
-    - shipped zero-to-one, business critical infrastructure and implementated large portion of business logic for industry-grade multi-tenant distributed system handling partner integrations with direct and immediate business impact
-    - delivered high-quality industry grade solutions under pressure and managing stakeholders' expectations
+    - delivered working OAuth 2.0 integration bridging AWS Cognito with third-party DSP protocol under 2-week timeline
+    - built production-ready menu mapper handling poor data quality and complex hierarchical relationships with comprehensive test coverage
+    - implemented correlation ID tracing enabling sub-second visibility across distributed OAuth flows
   ]
 ]
 #par(spacing: 1.0em)[]
@@ -339,7 +338,7 @@
     - Private customer: custom video calls service\
       #text(weight: "semibold")[Tools:] c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
 
-    - Petproject [in development]: Pluggable and configuratble HFT matching engine with focus on high performance / ultra-lowlatency. Possible applications: high volume / low latency crypto exchanges, arbitrage bots.\
+    - Petproject [in development]: Pluggable and configurable HFT matching engine with focus on high performance / ultra-lowlatency. Possible applications: high volume / low latency crypto exchanges, arbitrage bots.\
       #text(weight: "semibold")[Tools:] c++23 with extense usage of SIMD intrinsics, Cap'n Proto, go
 
   ]
@@ -381,7 +380,7 @@
     - Reversed Oracle histogram data to build custom sharding functionality
     - Built a Go REST service for cloud integration.
 
-    #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histrogram internals), Airlow
+    #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histogram internals), Airlow
 
     #text(weight: "semibold")[Achievements:]
     Rewrote a core feature flag transpiler used in HVR’s CI/CD pipeline, cutting runtime from over 1 minute to 5 seconds.
@@ -424,7 +423,7 @@
     - developed advanced spreadsheet UX for Samsung Tizen (embedded Linux), designing a declarative, compile-time state machine to avoid dynamic dispatch overhead and enable precise editing—resolving edge cases, free of bugs present back then in competitors' suites (e.g. Google Docs)
   ]
 ]
-#pagebreak()
+// #pagebreak()
 
 #resume-entry(
   title: "Senior Software Engineer",
@@ -439,8 +438,8 @@
     Building bank (transaction facility) for crypto mining pool basic exchange functionality:
     - scratch-written c++11 / asio framework and a few microservices (and their ownership)
     - multi-stage fault tolerant transactions
-    - operating mission critical distributed system and managing risks of direct loss via using append-only faul-tolerant custom storage, two-factor transactions, implenentig circuit breaking, proper alerting, extensive testing
-    - zero-to-one release the thing into production as joint effort of 3 engineers excercising high degree of code ownership (on subsystem level)
+    - operating mission critical distributed system and managing risks of direct loss via using append-only fault-tolerant custom storage, two-factor transactions, implementing circuit breaking, proper alerting, extensive testing
+    - zero-to-one release the thing into production as joint effort of 3 engineers exercising high degree of code ownership (on subsystem level)
 
     #text(weight: "semibold")[Tools:] c++11, Core Java, Groovy, Ruby(Chef)
 
