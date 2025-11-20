@@ -1,25 +1,34 @@
-.PHONY: all clean fmt format open letter-open
+# Default target to build
+PDF := cv.pdf
 
-TYP := cv.typ cover-letter.typ
-PDF := cv.pdf cover-letter.pdf
+# Guard function to ensure nix-shell environment
+define check-nix-env
+	$(if $(IN_NIX_SHELL),,$(error Run 'nix develop' first))
+endef
 
+# Pattern rule: build any PDF from corresponding Typst source
 %.pdf: %.typ
+	@$(check-nix-env)
 	typst compile $< $@
 
 .PHONY: build
-build: $(PDF) ## build PDF
+build: $(PDF) ## build CV
 
-open: cv.pdf
-	open cv.pdf
+.PHONY: open
+open: $(PDF) ## open CV
+	open $(PDF)
 
-letter-open: cover-letter.pdf
-	open cover-letter.pdf
-
-.PHONY: all
-all: build open ## build and open PDF
+.PHONY: open-letter
+open-letter: ## open cover letter
+	@if ls *letter*.pdf 1> /dev/null 2>&1; then \
+		open *letter*.pdf; \
+	else \
+		echo "No cover letter PDF found"; \
+		exit 1; \
+	fi
 
 .PHONY: rebuild
-rebuild: clean build ## rebuild PDF
+rebuild: clean build ## rebuild CV
 
 .PHONY: format
 format: ## format code
@@ -29,8 +38,8 @@ format: ## format code
 fmt: format ## alias for format
 
 .PHONY: clean
-clean: ## remove generated files
-	$(RM) $(PDF)
+clean: ## remove generated PDFs
+	$(RM) *.pdf
 
 # Delete targets on error to prevent partial builds
 .DELETE_ON_ERROR:
