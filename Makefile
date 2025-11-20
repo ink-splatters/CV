@@ -1,5 +1,6 @@
-# Default target to build
-PDF := cv.pdf
+# Find all .typ files and convert to .pdf targets
+TYPS := $(wildcard *.typ)
+PDFS := $(TYPS:.typ=.pdf)
 
 # Guard function to ensure nix-shell environment
 define check-nix-env
@@ -12,14 +13,14 @@ endef
 	typst compile $< $@
 
 .PHONY: build
-build: $(PDF) ## build CV
+build: $(PDFS) ## build all PDFs
 
 .PHONY: open
-open: $(PDF) ## open CV
-	open $(PDF)
+open: cv.pdf ## open CV
+	open cv.pdf
 
-.PHONY: open-letter
-open-letter: ## open cover letter
+.PHONY: letter-open
+letter-open: ## open cover letter
 	@if ls *letter*.pdf 1> /dev/null 2>&1; then \
 		open *letter*.pdf; \
 	else \
