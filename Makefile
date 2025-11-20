@@ -20,13 +20,8 @@ open: cv.pdf ## open CV
 	open cv.pdf
 
 .PHONY: letter-open
-letter-open: ## open cover letter
-	@if ls *letter*.pdf 1> /dev/null 2>&1; then \
-		open *letter*.pdf; \
-	else \
-		echo "No cover letter PDF found"; \
-		exit 1; \
-	fi
+letter-open: cover-letter.pdf ## open cover letter
+	open cover-letter.pdf
 
 .PHONY: rebuild
 rebuild: clean build ## rebuild CV
