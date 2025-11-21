@@ -133,6 +133,7 @@
   "Spring / Boot",
   "Hibernate",
   "NIO",
+  "Quarkus",
 ))
 
 #my-resume-skill-item("Build Systems", (
