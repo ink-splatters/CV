@@ -54,8 +54,7 @@
 
 = About
 #text(weight: "light")[
-  High-impact professional with 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant
-  solutions.
+  High-impact professional with over 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant solutions.
 ]
 
 #par(spacing: 0.5em)[]
@@ -87,19 +86,18 @@
     "___________________________________________________________________________________",
   ),
 )
+#my-resume-skill-item("C++11–23", (
+  "boost",
+  "flatbuffers",
+  "cap'n'proto",
+  "asio",
+  "gtest",
+  "seastar",
+))
 #my-resume-skill-item("Go", (
   "gin",
   "zap/slog",
   "gomock",
-))
-#my-resume-skill-item("JS/TypeScript", (
-  "React",
-  "Auth.js",
-  "tRPC",
-  "Prisma",
-  "Vite",
-  "Tailwind CSS",
-  "Axios",
 ))
 #my-resume-skill-item("Python", (
   "FastAPI",
@@ -116,10 +114,14 @@
   "seaborn",
   "pyo3/maturin",
 ))
-#my-resume-skill-item("C++23", (
-  "boost",
-  "flatbuffers",
-  "cap'n'proto",
+#my-resume-skill-item("JS/TypeScript", (
+  "React",
+  "Auth.js",
+  "tRPC",
+  "Prisma",
+  "Vite",
+  "Tailwind CSS",
+  "Axios",
 ))
 #my-resume-skill-item("Rust", (
   "tokio",
