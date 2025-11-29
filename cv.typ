@@ -1,17 +1,7 @@
-#import "@preview/modern-cv:0.9.0": *
-#import "@preview/fontawesome:0.6.0": *
+#import "modern-cv/lib.typ": *
 
 // Define colors from awesome-cv
-#let color-darknight = rgb("#131A28")
-#let color-darkgray = rgb("#333333")
-#let color-gray = rgb("#5d5d5d")
 #let default-accent-color = rgb("#262F99")
-
-// Icons for local use (FontAwesome)
-#let github-icon = box(fa-icon("github", fill: color-darknight))
-#let linkedin-icon = box(fa-icon("linkedin", fill: color-darknight))
-#let phone-icon = box(fa-icon("square-phone", fill: color-darknight))
-#let email-icon = box(fa-icon("envelope", fill: color-darknight))
 
 #show: resume.with(
   author: (
