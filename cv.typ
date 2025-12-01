@@ -152,7 +152,7 @@
   "Auth0",
 ))
 #my-resume-skill-item("Kubernetes", (
-  "Kubernetes (AKS / EKS / GKE)",
+  "Kubernetes (AKS / EKS / GKE / OpenShift)",
   "GCE",
 ))
 #my-resume-skill-item("Other compute", (
