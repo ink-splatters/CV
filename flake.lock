@@ -5,22 +5,24 @@
         "flake-parts": [
           "flake-parts"
         ],
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "systems": [
           "systems"
         ]
       },
       "locked": {
-        "lastModified": 1764378006,
-        "narHash": "sha256-VzYOVgTMOCwmCRRjogQM6wRVTXZIuh7MtK3Is6hwqxc=",
+        "lastModified": 1765378755,
+        "narHash": "sha256-OV5+uC6CcpD/R3lbjl+21GWkVGm5VN6LfAWt8Iw/7Xg=",
         "owner": "ink-splatters",
         "repo": "bake",
-        "rev": "c012596c53a0da29d7433b9303f788cb11a67ccb",
+        "rev": "acfa2de07de3d596cb946321704660d6b7bb78e0",
         "type": "github"
       },
       "original": {
         "owner": "ink-splatters",
-        "ref": "v1.4.4-dev",
+        "ref": "v1.4.6-dev",
         "repo": "bake",
         "type": "github"
       }
@@ -106,22 +108,6 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1764230294,
-        "narHash": "sha256-Z63xl5Scj3Y/zRBPAWq1eT68n2wBWGCIEF4waZ0bQBE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "0d59e0290eefe0f12512043842d7096c4070f30e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
         "lastModified": 1764290847,
         "narHash": "sha256-VwPgoDgnd628GdE3KyLqTyPF1WWh0VwT5UoKygoi8sg=",
         "owner": "NixOS",
@@ -141,7 +127,7 @@
         "bake": "bake",
         "flake-parts": "flake-parts",
         "git-hooks": "git-hooks",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "systems": "systems"
       }
     },
