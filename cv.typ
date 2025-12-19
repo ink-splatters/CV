@@ -12,7 +12,7 @@
     linkedin: "linkedin.com/in/peter-asanov",
     phone: "+31629598355",
     address: "Amsterdam, Netherlands",
-    positions: ("Senior Software Engineer",),
+    positions: ("Senior Software Engineer", "Technical Lead"),
   ),
   profile-picture: none,
   date: datetime.today().display("[month repr:long] [day], [year]"),
