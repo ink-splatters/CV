@@ -1,5 +1,5 @@
 # Find all .typ files and convert to .pdf targets
-TYPS := $(wildcard *.typ)
+TYPS := $(shell find . -maxdepth 1 -name "*.typ" | sed 's|^\./||' | sed 's/ /\\ /g')
 PDFS := $(TYPS:.typ=.pdf)
 
 # Guard function to ensure nix-shell environment
@@ -10,7 +10,7 @@ endef
 # Pattern rule: build any PDF from corresponding Typst source
 %.pdf: %.typ
 	@$(check-nix-env)
-	typst compile $< $@
+	typst compile "$<" "$@"
 
 .PHONY: build
 build: $(PDFS) ## build all PDFs
