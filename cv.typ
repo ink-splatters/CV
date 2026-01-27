@@ -152,13 +152,16 @@
   "Auth0",
 ))
 #my-resume-skill-item("Kubernetes", (
-  "Kubernetes (AKS / EKS / GKE / OpenShift)",
-  "GCE",
+  "AKS",
+  "EKS",
+  "GKE",
+  "OpenShift",
 ))
 #my-resume-skill-item("Other compute", (
   "Azure VM",
   "ECS",
   "EC2",
+  "GCE",
 ))
 #my-resume-skill-item("Serverless", (
   "Azure Functions",
@@ -168,9 +171,11 @@
 ))
 #my-resume-skill-item("IaC", (
   "Terraform",
+  "Helm",
+  "NixOps 4",
   "Bicep",
   "Azure Templates",
-  "Cloud Formation",
+  "CloudFormation",
   "cdk",
 ))
 
@@ -315,19 +320,21 @@
     cloud infrastructure:
 
     - Deliverect, full cycle restaurant business automation PaaS: integrated extra dimensions to Ordering facility\
-      #text(weight: "semibold")[Tools:] Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend)\
+      #text(weight: "semibold")[Tools:] Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend),
+      Terraform, Helm\
 
     - Ahold Delhaize (Albert Hijn): online data ingestion platform for internal compliance project, related to R&D efficiency and performance\
-      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Terraform\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Airflow, Spark,  Terraform, Helm\
 
     - Private customer: online data ingestion of Taxi terminals data for compliance project to prevent fraud from a driver side\
-      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS), Kafka, Postgres\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS), Kafka, Postgres, Terraform, Helm\
 
     - LEGO: building internal IAM / IdP functionality\
       #text(weight: "semibold")[Tools:] Azure Functions, Azure SAML identity provider, Python
 
     - Private customer: cloud based video conversion service\
-      #text(weight: "semibold")[Tools:] c++20, cmake, ninja, go, grpc-gateway, ffmpeg, nix, terraform(terranix), EKS, CloudWatch\
+      #text(weight: "semibold")[Tools:] c++20, cmake, ninja, go, grpc-gateway, ffmpeg, Kubernetes (EKS), CloudWatch, Airflow,
+      nix, Terraform(terranix), Helm\
 
     - Private customer: custom video calls service\
       #text(weight: "semibold")[Tools:] c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
@@ -353,7 +360,7 @@
     - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)
     - Built scalable tooling and participated in sensitive customer data migration
     - Wrote low-code generator of CRUD apps from declarative schema, used for administrative and other internal tools; bringing measurable R&D cost reduction\
-    #text(weight: "semibold")[Tools:] ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform\
+    #text(weight: "semibold")[Tools:] ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform, Helm\
 
     #text(weight: "semibold")[Achievements:] tackled cost-efficiency and throughput predictability of compute-heavy optimization workloads (with non-deterministic convergence) by implementing Kubernetes-native solutions: bin packing via resource requests/limits and affinity rules, priority classes, and a pre-warmed spare node strategy using Cluster Autoscaler and taints/tolerations.
   ]
@@ -374,7 +381,7 @@
     - Reversed Oracle histogram data to build custom sharding functionality
     - Built a Go REST service for cloud integration.
 
-    #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histogram internals), Airlow
+    #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histogram internals), Airflow, Spark
 
     #text(weight: "semibold")[Achievements:]
     Rewrote a core feature flag transpiler used in HVR’s CI/CD pipeline, cutting runtime from over 1 minute to 5 seconds.
