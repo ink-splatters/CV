@@ -15,7 +15,6 @@
     positions: ("Senior Software Engineer",),
   ),
   profile-picture: none,
-  date: datetime.today().display("[month repr:long] [day], [year]"),
   accent-color: default-accent-color,
   colored-headers: true,
   show-footer: false,
