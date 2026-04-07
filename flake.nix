@@ -18,7 +18,7 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    systems.url = "github:nix-systems/default";
+    systems.url = "github:ink-splatters/nix-systems";
   };
 
   nixConfig = {
