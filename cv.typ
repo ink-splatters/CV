@@ -19,8 +19,8 @@
   colored-headers: true,
   show-footer: false,
   paper-size: "a4", // Use A4 for Dutch, US-letter for FAANG
-  font: ("Roboto", "Source Sans Pro"), // Updated to match installed fonts
-  header-font: "Source Sans Pro", // Updated to match installed fonts
+  font: ("Roboto", "Source Sans Pro"),
+  header-font: "Source Sans Pro",
 )
 
 #set list(marker: ([•], [-]))
@@ -43,7 +43,8 @@
 
 = About
 #text(weight: "light")[
-  High-impact professional with over 20 years' experience, spent over a decade building enterprise-grade distributed systems for real-time interactive and mission-critical applications, navigating complex problems and delivering elegant solutions.
+  High-impact software engineering professional with 20+ years of experience, including over a decade building distributed systems for real-time, data-intensive, and mission-critical applications.
+  Navigates complex technical problems from architecture to implementation, delivering clear, reliable, and elegant solutions.
 ]
 
 #par(spacing: 0.5em)[]
@@ -52,7 +53,7 @@
 #resume-entry(
   title: "B.Sc. in Computer Science and Engineering",
   location: "Novosibirsk, Russia",
-  date: "2002 - 2007",
+  date: "2002 – 2007",
   description: "Novosibirsk State Technical University (NSTU)",
 )
 
@@ -66,7 +67,7 @@
   "HA",
   "fault tolerance",
   "consensus protocols (Paxos, Raft)",
-  "CAP Trade-offs",
+  "CAP trade-offs",
   "event-driven systems",
 ))
 #my-resume-skill-section(
@@ -78,7 +79,7 @@
 #my-resume-skill-item("C++11–23", (
   "boost",
   "flatbuffers",
-  "cap'n'proto",
+  "Cap'n Proto",
   "asio",
   "gtest",
   "seastar",
@@ -128,10 +129,35 @@
   "Quarkus",
 ))
 
+#my-resume-skill-section(
+  "GenAI / LLM",
+  (
+    "___________________________________________________________________________________",
+  ),
+)
+#my-resume-skill-item("RAG systems", (
+  "retrieval-ready data design",
+  "hierarchical + reference schema modeling",
+  "context preparation for LLM calls",
+  "reproducible data transformation pipelines",
+))
+#my-resume-skill-item("LLM integration", (
+  "protocol interoperability for agentic systems",
+  "OAuth2/OIDC for AI partner integrations",
+  "signed payload validation in model passthrough",
+  "debugging proprietary API integrations",
+))
+#my-resume-skill-item("Data quality for AI", (
+  "circular dependency resolution",
+  "orphaned reference reconciliation",
+  "ambiguity handling",
+  "schema drift resilience",
+))
+
 #my-resume-skill-item("Build Systems", (
   "Nix",
   "CMake",
-  "ninja",
+  "Ninja",
   "Maven",
   "Meson",
   "Bazel",
@@ -151,6 +177,7 @@
   "Auth0",
 ))
 #my-resume-skill-item("Kubernetes", (
+  "k3s",
   "AKS",
   "EKS",
   "GKE",
@@ -166,7 +193,7 @@
   "Azure Functions",
   "AWS Lambda",
   "GCF",
-  "CloudFlare workers",
+  "Cloudflare Workers",
 ))
 #my-resume-skill-item("IaC", (
   "Terraform",
@@ -179,6 +206,7 @@
 ))
 
 #my-resume-skill-item("CI/CD & GitOps", (
+  "Flux CD",
   "GitHub Actions",
   "GitLab CI/CD",
   "ArgoCD",
@@ -188,8 +216,8 @@
 #my-resume-skill-item("Observability", (
   "Azure Monitor / App Insights",
   "AWS CloudWatch / X-Ray / CloudTrail",
-  "Prometheus",
-  "Grafana LGTM",
+  "Prometheus / Alertmanager",
+  "Grafana / LGTM",
   "OTLP",
 ))
 #my-resume-skill-item("DevSecOps", (
@@ -211,6 +239,8 @@
 )
 #my-resume-skill-item("DBMS", (
   "PostgreSQL",
+  "PostGIS",
+  "TimescaleDB",
   "MySQL",
   "Cassandra",
   "MongoDB",
@@ -229,7 +259,7 @@
   "Memcached",
 ))
 #my-resume-skill-item("Block storage", (
-  "S3 / Minio",
+  "S3 / MinIO / RustFS",
   "ABS",
 ))
 #my-resume-skill-item("Queueing", (
@@ -264,33 +294,72 @@
 = Work Experience
 
 #resume-entry(
+  title: "Senior Software Engineer",
+  location: "Rotterdam, Netherlands",
+  date: "March 2026 - July 2026",
+  description: "The Ocean Cleanup",
+)
+
+#[
+  #set par(spacing: 1.0em)
+  #resume-item[
+    1. Re-engineered and owned the infrastructure for Onboard Compute platform - edge distributed system, managing UAV and vessel data ingestion, operational monitoring, and offshore cleanup planning.\
+
+    #pad(left: 1.5em)[
+      Replaced the single-node k3s deployment with a three-node HA cluster and configured Kubernetes API failover between its two control-plane servers. Introduced GitOps for in-cluster state and built the host-provisioning and k3s/Flux bootstrap layer in Ansible. The GitOps workflow managed SOPS-encrypted runtime secrets and validated rendered manifests.
+      Replicated this setup in a three-node local development environment. Automated node-access provisioning, wrote setup and recovery runbooks, and supported engineers through handover.
+    ]
+
+    2. Alongside the platform work, helped clear the frontend backlog by refining proposed map fixes to improve legibility: higher-contrast density bands and a clearer hierarchy between vessel and route layers.
+
+    #text(weight: "semibold")[Platform:] k3s, Flux CD, Kube-VIP, MetalLB (L2), Tailscale, Traefik, CloudNativePG, PostgreSQL/PostGIS/TimescaleDB, Redis Streams/Zenoh, Prometheus/Grafana, RustFS
+
+    #text(weight: "semibold")[Tools:] Python, Ansible, Kustomize, SOPS, Terraform/Talos (PoC), Docker Engine, Tart, Rosetta, binfmt_misc, Nix/flake-parts (modular reproducible dev environments), Vue/TypeScript
+
+    #text(weight: "semibold")[Achievements:]
+    - built the local cluster on Apple Silicon to run amd64 workloads via Docker Engine and Rosetta registered with binfmt_misc after debugging K3s's embedded-containerd path at the OCI/seccomp layer
+    - expanded Flux reconciliation, ingress, and remote-write alerts; instrumented UAV ingestion for data freshness, stream processing, dead-letter handling, and latency
+    - delivered HA ingress through a single VIP reachable over both the onboard LAN and tailnet
+    - replaced ingress-nginx with Traefik and authored the in-review routing RFC proposing Gateway API as the long-term model
+    - prototyped API-driven edge-cluster setup without node SSH using Terraform/Talos; the team retained k3s/Ansible
+  ]
+]
+#par(spacing: 1.0em)[]
+
+#resume-entry(
   title: "Senior Software Engineer | Partner Integrations",
-  location: "Amsterdam, The Netherlands",
-  date: "July 2025 - Oct 2025",
+  location: "Amsterdam, Netherlands",
+  date: "July 2025 – Oct 2025",
   description: "Vox AI",
 )
 
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Worked on backend infrastructure for voice AI drive-thru platform, reporting directly to founders under tight deadlines.\ \
+    Built backend integrations for a voice-AI drive-thru platform, working directly with founders under two-week delivery windows.\ \
 
-    1. Streamorders.com platform integration as DSP. OAuth2.0 server and location management API
+    1. Streamorders.com DSP integration: OAuth 2.0 server and location-management API
     #pad(left: 1.5em)[
-      Implemented AWS-backed serverless integration infrastructure with focus on observability, rapid iteration and state of the art security:
+      Implemented AWS-backed serverless infrastructure for the partner data-exchange protocol, with security, observability, and fast deployment cycles built in.
     ]
     #pad(left: 1.5em)[
-      "OAuth 2.0 authorization code flow with AWS Cognito + PKCE, including custom handlers to work around partner's RFC 6749 non-compliant client (e.g. missing redirect_uri in token requests, custom URIs)
-      - correlation ID system (nonce-based) for end-to-end distributed tracing across authorize/token/webhook flows
+      AWS Cognito-based OAuth 2.0/OIDC service with PKCE enforcement and compatibility handling for non-compliant partner clients
+      - correlation ID system for end-to-end tracing across authorize/token/webhook flows
       - multi-tenant location management API with DynamoDB repository pattern and AWS X-Ray integration
-      - stable stack architecture with CDK to minimize redeployment cycles (avoiding 15-40min Cognito CloudFront reprovisioning)
+      - stable CDK stack layout to avoid 15-40 min Cognito/CloudFront reprovisioning during iteration
       - comprehensive observability: X-Ray distributed tracing, correlation IDs in logs/headers, Lambda Powertools, EventBridge + SQS for OAuth event monitoring
     ]
 
-    2. POS menu transformation system - hierarchical mapper for Redcat POS integration
+    2. POS menu transformation system for Redcat integration
 
     #pad(left: 1.5em)[
-      Developed hierarchical menu transformation system converting flattened POS data into nested structures, handling data quality issues (ambiguity, circular dependencies, orphaned references), achieving reproducibility withstanding minor upstream changes, and with minimal usage of heuristics; targeting dual schema system (nested + flattened - for RAG)
+      Built a deterministic pipeline that converted flat POS data into nested and reference structures for voice-ordering RAG. Resolved ambiguity, circular dependencies, and orphaned references with transformations resilient to upstream schema changes.
+    ]
+
+    3. RAG data quality engineering + CI integration
+
+    #pad(left: 1.5em)[
+      Converted noisy POS inputs into retrieval-ready structures and added CI validation to catch regressions from schema and data changes.
     ]
 
     #text(weight: "semibold")[Platform:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK (IaC)
@@ -299,8 +368,9 @@
 
     #text(weight: "semibold")[Achievements:]
     - delivered working OAuth 2.0 integration bridging AWS Cognito with third-party DSP protocol under 2-week timeline
-    - built production-ready menu mapper handling poor data quality and complex hierarchical relationships with comprehensive test coverage
+    - built production-ready, RAG-oriented menu mapper handling poor data quality and complex hierarchical/reference relationships with strong test coverage
     - implemented correlation ID tracing enabling sub-second visibility across distributed OAuth flows
+    - integrated RAG data quality checks into CI workflows, reducing regressions from upstream POS schema and data changes
   ]
 ]
 #par(spacing: 1.0em)[]
@@ -308,38 +378,43 @@
 #resume-entry(
   title: "Senior Software Engineer",
   location: "Netherlands",
-  date: "2022 - ",
+  date: "2022 – Present",
   description: "Freelance / contracting",
 )
 
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Worked on multiple projects as contractor/freelancer, with strong focus on platform engineering and
-    cloud infrastructure:
+    Delivered platform, data, and systems engineering across client and open-source projects:
 
-    - Deliverect, full cycle restaurant business automation PaaS: integrated extra dimensions to Ordering facility\
-      #text(weight: "semibold")[Tools:] Python, Eve, celery, Kubernetes (GKE), Typescript, React, Redis, minio (local backend),
+    - Open-source contribution (tailscale/tailscale): landed Unix socket proxy support for `tailscale serve unix:/path/to/socket` in `cmd/tailscale` + `ipn`; enables exposing services like Docker/containerd/PHP-FPM over Tailscale without TCP bridging, with safeguards for sensitive local sockets\
+
+    - Open-source contribution (blacktop/ipsw): fixed demangling of internal symbols (including `.cold.*`) to improve readability and correctness of disassembly output\
+
+    - Agentic protocol contribution (opencode-antigravity-auth): reverse-engineered signed payload handling for Claude 4.6 interleaved thinking in private Google Antigravity API passthrough; preserved valid signatures and stripped only invalid ones to prevent model instability and reasoning leakage\
+
+    - Deliverect, full-cycle restaurant automation PaaS: extended ordering data model and API behavior\
+      #text(weight: "semibold")[Tools:] Python, Eve, Celery, Kubernetes (GKE), TypeScript, React, Redis, MinIO (local backend),
       Terraform, Helm\
 
-    - Ahold Delhaize (Albert Hijn): online data ingestion platform for internal compliance project, related to R&D efficiency and performance\
-      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS, Kafka Strimzi operator), GitOps (ArgoCD), Airflow, Spark,  Terraform, Helm\
+    - Ahold Delhaize (Albert Heijn): online data-ingestion platform for internal compliance and R&D analytics\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS, Kafka Strimzi Operator), GitOps (Argo CD), Airflow, Spark, Terraform, Helm\
 
-    - Private customer: online data ingestion of Taxi terminals data for compliance project to prevent fraud from a driver side\
-      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS), Kafka, Postgres, Terraform, Helm\
+    - Private customer: taxi-terminal telemetry ingestion for compliance and fraud analysis\
+      #text(weight: "semibold")[Tools:] Go, Kubernetes (AKS), Kafka, PostgreSQL, Terraform, Helm\
 
-    - LEGO: building internal IAM / IdP functionality\
+    - LEGO: internal IAM / identity-provider functionality\
       #text(weight: "semibold")[Tools:] Azure Functions, Azure SAML identity provider, Python
 
-    - Private customer: cloud based video conversion service\
-      #text(weight: "semibold")[Tools:] c++20, cmake, ninja, go, grpc-gateway, ffmpeg, Kubernetes (EKS), CloudWatch, Airflow,
-      nix, Terraform(terranix), Helm\
+    - Private customer: cloud-based video-conversion service\
+      #text(weight: "semibold")[Tools:] C++20, CMake, Ninja, Go, gRPC-Gateway, FFmpeg, Kubernetes (EKS), CloudWatch, Airflow,
+      Nix, Terraform (Terranix), Helm\
 
     - Private customer: custom video calls service\
-      #text(weight: "semibold")[Tools:] c++23, cmake, ninja, asio, libdatachannel (WebRTC stack), nix, ansible\
+      #text(weight: "semibold")[Tools:] C++23, CMake, Ninja, Asio, libdatachannel (WebRTC stack), Nix, Ansible\
 
-    - Petproject [in development]: Pluggable and configurable HFT matching engine with focus on high performance / ultra-lowlatency. Possible applications: high volume / low latency crypto exchanges, arbitrage bots.\
-      #text(weight: "semibold")[Tools:] c++23 with extense usage of SIMD intrinsics, Cap'n Proto, go
+    - Pet project [in development]: configurable HFT matching engine focused on high-throughput, low-latency order matching for exchanges and arbitrage systems\
+      #text(weight: "semibold")[Tools:] C++23, SIMD intrinsics, Cap'n Proto, Go
 
   ]
 ]
@@ -354,14 +429,14 @@
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    - Centric role in large cloud platform migration project (from AWS to Azure with substantial scratch-rewrite in modern c++, from former Java/Scala)
-    - Scratch-written Modern c++ framework and related micro-service template featuring protobuf DSL as API first class citizen, popularizing its use also for REST APIs to avoid buggy (back then) OpenAPI generators
-    - Bootstrapped Azure landing zone (custom bootstrap for Terraform state and RBAC)
-    - Built scalable tooling and participated in sensitive customer data migration
-    - Wrote low-code generator of CRUD apps from declarative schema, used for administrative and other internal tools; bringing measurable R&D cost reduction\
-    #text(weight: "semibold")[Tools:] ECS, EC2, CloudWatch, Go, Python, Java, Scala, c++17, Typescript, React, conan, cmake, ninja, grpc-gateway, go, Kubernetes (AKS), Azure Application Insights, Terraform, Helm\
+    - led core C++ platform work in an AWS-to-Azure migration, replacing Java/Scala services with a modern C++ service framework
+    - built a C++17 microservice template with an API-first protobuf DSL used for both gRPC and REST surfaces
+    - bootstrapped Azure landing-zone foundations for Terraform state and RBAC
+    - built migration tooling for sensitive customer data
+    - wrote a declarative-schema CRUD generator for administrative and internal tools, reducing repetitive R&D work\
+    #text(weight: "semibold")[Tools:] ECS, EC2, CloudWatch, Go, Python, Java, Scala, C++17, TypeScript, React, Conan, CMake, Ninja, gRPC-Gateway, Kubernetes (AKS), Azure Application Insights, Terraform, Helm\
 
-    #text(weight: "semibold")[Achievements:] tackled cost-efficiency and throughput predictability of compute-heavy optimization workloads (with non-deterministic convergence) by implementing Kubernetes-native solutions: bin packing via resource requests/limits and affinity rules, priority classes, and a pre-warmed spare node strategy using Cluster Autoscaler and taints/tolerations.
+    #text(weight: "semibold")[Achievements:] tackled cost-efficiency and throughput predictability of compute-heavy optimization workloads (with non-deterministic convergence) by implementing Kubernetes-native solutions: bin packing via resource requests/limits and affinity rules, priority classes, and a pre-warmed spare node strategy using Cluster Autoscaler and taints/tolerations
   ]
 ]
 #par(spacing: 1.0em)[]
@@ -375,52 +450,48 @@
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Worked on high performance online data replication system, also called HVR (features and bugfixing)
-    - Worked on product core (log based replication engine)
-    - Reversed Oracle histogram data to build custom sharding functionality
-    - Built a Go REST service for cloud integration.
+    Built features and fixes for HVR's high-throughput, log-based data-replication engine.
+    - contributed to product core replication workflows
+    - reverse-engineered Oracle histogram metadata to support custom sharding functionality
+    - built a Go REST service for cloud integration
 
     #text(weight: "semibold")[Tools:] C99, Python, Go, multiple RDBMS and Big Data stacks (integration), Oracle (histogram internals), Airflow, Spark
 
     #text(weight: "semibold")[Achievements:]
-    Rewrote a core feature flag transpiler used in HVR’s CI/CD pipeline, cutting runtime from over 1 minute to 5 seconds.
-
-    This order-of-magnitude speedup on a critical build path significantly improved developer experience and delivered measurable infrastructure cost savings.
+    rewrote a core feature-flag transpiler used in HVR's CI/CD pipeline, reducing runtime from over 1 minute to 5 seconds on a critical build path
   ]
 ]
 #par(spacing: 1.0em)[]
 
 #resume-entry(
   title: "Software Engineer",
-  location: "Eindhoven, The Netherlands",
+  location: "Eindhoven, Netherlands",
   date: "2017",
   description: "Mapscape B.V.",
 )
 #resume-item[
-  Worked on Mapscape NDS (navigation data standard) compiler:
-  - implemented parts of NDS compiler backend related to parsing raw map data
-  - introduced parallelism in parsing raw map data, significantly speeding it up\
-  #text(weight: "semibold")[Tools:] c++ 11 / 14 / boost / gtest / sqlite / shell / python / Airflow
+  Implemented backend components of the Mapscape NDS compiler for raw map-data parsing and added parallel parsing to reduce processing time.\
+  #text(weight: "semibold")[Tools:] C++11/14, Boost, GTest, SQLite, shell, Python, Airflow
 ]
 #par(spacing: 1.0em)[]
 
 #resume-entry(
   title: "Senior Software Engineer",
   location: "St. Petersburg, Russia",
-  date: "2014 - 2017",
+  date: "2014 – 2017",
   description: "New Cloud Technologies",
 )
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    My Office project: on-prem office solution featuring collaboration engine: work on core functionality (features and bugfixing) and on spreadsheets client for Tizen OS
+    Built collaboration-engine features for an on-prem office suite and developed the spreadsheet client for Samsung Tizen.
 
-    #text(weight: "semibold")[Tools:] c++14, cmake, emscripten, Objective C, Qt, SWIG, Kubernetes\
+    #text(weight: "semibold")[Tools:] C++14, CMake, Emscripten, Objective-C, Qt, SWIG, Kubernetes\
     #text(weight: "semibold")[Achievements:]
 
-    - Independently built a cross-platform freetype-based font rendering engine with subpixel positioning for scalable document layouts; overcame technical depth and low project visibility to successfully drive integration into a large enterprise codebase.
+    - built a cross-platform FreeType-based font-rendering engine with subpixel positioning for scalable document layouts and integrated it into a large enterprise codebase
 
-    - developed advanced spreadsheet UX for Samsung Tizen (embedded Linux), designing a declarative, compile-time state machine to avoid dynamic dispatch overhead and enable precise editing—resolving edge cases, free of bugs present back then in competitors' suites (e.g. Google Docs)
+    - developed advanced spreadsheet editing for Samsung Tizen using a declarative, compile-time state machine to avoid dynamic dispatch overhead and resolve editing edge cases observed in competing web suites
   ]
 ]
 // #pagebreak()
@@ -435,17 +506,17 @@
 #[
   #set par(spacing: 1.5em)
   #resume-item[
-    Building bank (transaction facility) for crypto mining pool basic exchange functionality:
-    - scratch-written c++11 / asio framework and a few microservices (and their ownership)
-    - multi-stage fault tolerant transactions
-    - operating mission critical distributed system and managing risks of direct loss via using append-only fault-tolerant custom storage, two-factor transactions, implementing circuit breaking, proper alerting, extensive testing
-    - zero-to-one release the thing into production as joint effort of 3 engineers exercising high degree of code ownership (on subsystem level)
+    Built C++11 microservices for a crypto-mining-pool banking and exchange subsystem:
+    - designed an Asio-based service framework
+    - implemented multi-stage, fault-tolerant transactions
+    - reduced direct-loss risk with append-only storage, two-factor transactions, circuit breakers, alerting, rollback paths, and extensive testing
+    - shipped the zero-to-one production release with a three-engineer team, owning the C++ subsystem end to end
 
-    #text(weight: "semibold")[Tools:] c++11, Core Java, Groovy, Ruby(Chef)
+    #text(weight: "semibold")[Tools:] C++11, Core Java, Groovy, Ruby (Chef)
 
     #text(weight: "semibold")[Achievements:]
-    - designed and implemented all C++11 microservices for crypto exchange banking facility, including a multi-stage, fault-tolerant transaction system and circuit breaker with (semi-)automatic rollbacks.
-    - delivered under pressure, a zero-to-one production launch in under 2 months alongside with one more person (Java developer), with personal accountability driving rigorous testing and system reliability under financial risk.
+    - designed and implemented all C++11 services for the crypto exchange banking facility, including multi-stage transactions and circuit breakers with rollback paths
+    - delivered the production launch in under two months with personal accountability for reliability under financial risk
   ]
 ]
 
@@ -453,6 +524,6 @@
 
 #resume-entry(
   title: "Previous work history",
-  date: "2005 - 2014",
-  description: "available upon request",
+  date: "2005 – 2014",
+  description: "Available upon request",
 )
