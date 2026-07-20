@@ -6,6 +6,7 @@
       url = "github:ink-splatters/bake?ref=v1.4.6-dev";
       inputs = {
         flake-parts.follows = "flake-parts";
+        nixpkgs.follows = "nixpkgs";
         systems.follows = "systems";
       };
     };
