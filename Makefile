@@ -16,7 +16,7 @@ $(PDF): $(TYP)
 build: $(PDF) ## build PDF
 
 .PHONY: open
-open: ## open PDF
+open: build ## open PDF
 	open $(PDF)
 
 .PHONY: all
