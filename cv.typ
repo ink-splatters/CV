@@ -1,4 +1,4 @@
-#import "modern-cv/lib.typ": *
+#import "@preview/modern-cv:0.10.0": *
 
 // Define colors from awesome-cv
 #let default-accent-color = rgb("#262F99")
