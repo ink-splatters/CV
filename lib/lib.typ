@@ -2,19 +2,22 @@
 
 #let default-accent-color = rgb("#262F99")
 #let skill-color = rgb("#282f93")
+#let skill-item-gap = 0.55em
+#let skill-subgroup-gap = 0.9em
+
 #let skill-line(skills) = {
   set par(
-    justify: true,
-    justification-limits: (
-      spacing: (min: 80%, max: 120%),
-      tracking: (min: -0.02em, max: 0.02em),
-    ),
+    justify: false,
+    leading: 0.5em,
   )
-  set text(hyphenate: false)
-  skills.join(", ")
+  align(left, skills.join(", "))
 }
 
-#let skill-label(label, size: 11pt, weight: "medium") = {
+#let skill-label(
+  label,
+  size: 11pt,
+  weight: "medium",
+) = {
   align(right, text(
     label,
     size: size,
@@ -23,21 +26,31 @@
   ))
 }
 
-#let my-resume-skill-section(item, skills: (), divider: true) = {
-  let section = resume-skill-item(
-    skill-label(item, size: 12pt, weight: "bold"),
-    if divider {
-      (align(horizon, box(width: 100%, line(length: 100%))),)
-    } else {
-      (skill-line(skills),)
-    },
-  )
+#let skill-row(category, values) = {
+  set block(below: skill-item-gap)
+  set pad(top: 2pt)
 
-  if divider {
-    pad(top: 0.7em, section)
+  pad[
+    #grid(
+      columns: (3fr, 8fr),
+      gutter: 10pt,
+      align: left + top,
+      resume-skill-category(category), resume-skill-values(values),
+    )
+  ]
+}
+
+#let my-resume-skill-section(item, skills: (), divider: true) = {
+  let values = if divider {
+    (align(horizon, box(width: 100%, line(length: 100%))),)
   } else {
-    section
+    (skill-line(skills),)
   }
+
+  skill-row(
+    skill-label(item, size: 12pt, weight: "bold"),
+    values,
+  )
 }
 
 #let my-resume-skill-item(item, skills) = {
@@ -58,16 +71,16 @@
   }
 
   if rows.len() == 1 {
-    resume-skill-item(
+    skill-row(
       skill-label(item),
       (skill-line(rows.first()),),
     )
   } else {
-    resume-skill-item(
+    skill-row(
       skill-label(item),
       (
         stack(
-          spacing: 0.7em,
+          spacing: skill-subgroup-gap,
           ..rows.map(skill-line),
         ),
       ),
