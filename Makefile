@@ -1,29 +1,33 @@
-# Source and output files
-TYP := cv.typ
-PDF := cv.pdf
+# Root-level Typst sources and their PDF outputs
+TYPS := $(wildcard *.typ)
+PDFS := $(TYPS:.typ=.pdf)
 
 # Guard function to ensure nix-shell environment
 define check-nix-env
 	$(if $(IN_NIX_SHELL),,$(error Run 'nix develop' first))
 endef
 
-# Build the PDF from Typst source
-$(PDF): $(TYP)
+# Build a PDF from its corresponding Typst source
+%.pdf: %.typ
 	@$(check-nix-env)
 	typst compile $< $@
 
 .PHONY: build
-build: $(PDF) ## build PDF
+build: $(PDFS) ## build all PDFs
 
 .PHONY: open
-open: build ## open PDF
-	open $(PDF)
+open: build ## open CV
+	open cv.pdf
+
+.PHONY: letter-open
+letter-open: build ## open cover letter
+	open cover-letter.pdf
 
 .PHONY: all
-all: build open ## build and open PDF
+all: build open ## build all PDFs and open CV
 
 .PHONY: rebuild
-rebuild: clean build ## rebuild PDF
+rebuild: clean build ## rebuild all PDFs
 
 .PHONY: format
 format: ## format code
@@ -33,8 +37,8 @@ format: ## format code
 fmt: format ## alias for format
 
 .PHONY: clean
-clean: ## remove generated files
-	$(RM) $(PDF)
+clean: ## remove generated PDFs
+	$(RM) $(PDFS)
 
 # Delete targets on error to prevent partial builds
 .DELETE_ON_ERROR:
