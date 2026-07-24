@@ -1,12 +1,4 @@
-#import "modern-cv/lib.typ": *
-
-#let my-coverletter-content(content) = {
-  pad(top: 0em, bottom: 1em)[
-    #set par(spacing: 1.5em, first-line-indent: 0em, justify: true)
-    #set text(weight: "light")
-    #content
-  ]
-}
+#import "lib/lib.typ": *
 
 #let date = "01.03.2018"
 #let position = "The Guardian of the Galaxy"
