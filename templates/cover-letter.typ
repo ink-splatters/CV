@@ -24,6 +24,7 @@
     ),
   ),
   font: ("Roboto", "Source Sans Pro"),
+  header-font: "Source Sans Pro",
   profile-picture: none,
   language: "en",
   date: date,
