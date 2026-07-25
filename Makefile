@@ -8,7 +8,7 @@ define check-nix-env
 endef
 
 # Build a PDF from its corresponding Typst source
-%.pdf: %.typ
+%.pdf: %.typ lib/lib.typ
 	@$(check-nix-env)
 	typst compile $< $@
 

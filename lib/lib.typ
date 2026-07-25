@@ -42,7 +42,7 @@
 
 #let my-resume-skill-section(item, skills: (), divider: true) = {
   let values = if divider {
-    (align(horizon, box(width: 100%, line(length: 100%))),)
+    (align(horizon, box(width: 100%, line(length: 100%, stroke: 0.5pt))),)
   } else {
     (skill-line(skills),)
   }
