@@ -6,6 +6,48 @@
 #let skill-item-gap = 0.6em
 // #let skill-list-gap = 0.9em
 
+/// Renders a resume entry with fixed two-column headers.
+///
+/// This matches modern-cv's resume-entry arguments, spacing, and heading
+/// styles. Grid tracks keep the title and location stable across page breaks.
+#let cv-entry(
+  title: none,
+  location: "",
+  date: "",
+  description: "",
+  title-link: none,
+  accent-color: default-accent-color,
+  location-color: default-location-color,
+) = {
+  let title-content = if type(title-link) == str {
+    link(title-link)[#title]
+  } else {
+    title
+  }
+
+  block(above: 1em, below: 0.65em, sticky: true)[
+    #pad[
+      #block(above: 0.7em, below: 0.7em)[
+        #grid(
+          columns: (1fr, auto),
+          column-gutter: 10pt,
+          align: (left + bottom, right + bottom),
+          [== #title-content],
+          text(fill: location-color)[#secondary-right-header(location)],
+        )
+      ]
+      #if description != "" or date != "" [
+        #grid(
+          columns: (1fr, auto),
+          column-gutter: 10pt,
+          align: (left + bottom, right + bottom),
+          [=== #description], tertiary-right-header(date),
+        )
+      ]
+    ]
+  ]
+}
+
 #let skill-list(skills) = {
   set par(
     justify: false,
