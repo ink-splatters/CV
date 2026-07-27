@@ -25,7 +25,7 @@
 
 = About
 #text(weight: "light")[
-  Senior software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems from architecture through implementation.
+  Senior software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture through production.
 ]
 
 = Skills
@@ -261,7 +261,7 @@
 
 = Work Experience
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer",
   location: "Rotterdam, Netherlands",
   date: "Mar 2026 – Jul 2026",
@@ -271,85 +271,53 @@
 #[
   #set par(spacing: 1.0em)
   #resume-item[
-    Owned infrastructure for the Onboard Compute platform, an edge system for UAV and vessel data ingestion, visualization, operational monitoring, and offshore cleanup planning.\
+    Owned, re-architected, and shipped the infrastructure for Onboard Compute, an edge platform for UAV and vessel data ingestion, visualization, operational monitoring, and offshore cleanup planning.\
     #pad(left: 1em)[
       - Scaled k3s from one node to a three-server HA cluster with an embedded etcd quorum; added Kubernetes API endpoint failover and an ingress VIP reachable from both the onboard LAN and tailnet.\
 
-      - Introduced a two-layer automation model: GitOps for in-cluster state; Ansible for node and access provisioning and k3s/Flux bootstrap. Secured runtime secrets with SOPS and enforced validation across both repositories, including KubeLinter checks of fully rendered Flux trees and kubeconform validation in strict mode against pinned schemas.\
+      - Introduced GitOps for in-cluster state and Ansible for node provisioning, access management, and k3s/Flux bootstrap. Secured runtime secrets with SOPS; validated fully rendered Flux trees with KubeLinter and strict kubeconform checks against pinned schemas; and built a topology-equivalent Tart/k3s environment for validation without field-cluster access.\
 
-      - Authored an internal RFC to standardize Gateway API routing across company systems and developed a Talos Linux PoC for immutable, API-managed edge nodes.\
+      - Authored an internal RFC to standardize Gateway API routing across edge and cloud systems and developed a Talos Linux PoC for immutable, API-managed edge nodes.\
 
-      - Documented cluster setup and steady-state operations, and wrote recovery runbooks.\
+      - Improved map legibility with higher-contrast density bands and clearer hierarchy between vessel and route layers.\
 
       - Instrumented UAV ingestion for Zenoh freshness and forwarding, Redis Streams/DLQ processing, and end-to-end latency; added alerts for Flux reconciliation, ingress health, and remote-write failures.\
 
-      - Built a topology-equivalent local k3s environment with Tart VMs to validate changes without access to the field cluster.
-    ]
-    #text(weight: "semibold")[Achievements:]
-    #pad(left: 1em)[
       - Enabled unmodified amd64 workloads on Apple Silicon by replacing k3s's embedded containerd with Docker Engine and registering Rosetta through binfmt_misc, bypassing an OCI runtime/seccomp incompatibility.
-
-      - Improved frontend map legibility by refining higher-contrast density bands and the visual hierarchy between vessel and route layers.
     ]
     #pad[
-      #text(weight: "semibold")[Platform & services:] k3s, Flux CD, kube-vip, MetalLB (L2), Tailscale, Traefik, CloudNativePG, PostgreSQL (PostGIS, TimescaleDB), Redis Streams, Zenoh, Prometheus, Grafana, RustFS
+      #text(weight: "semibold")[Platform:] k3s, Flux CD, kube-vip, MetalLB (L2), Tailscale, Traefik, CloudNativePG, PostgreSQL (PostGIS, TimescaleDB), Redis Streams, Zenoh, Prometheus/Grafana, RustFS
 
-      #text(weight: "semibold")[Infrastructure tooling:] Ansible, Kustomize, SOPS, KubeLinter, kubeconform, Docker Engine, Tart, Rosetta, binfmt_misc, Nix/flake-parts
-
-
-      #text(weight: "semibold")[App stack:] Python, TypeScript, Vue
+      #text(weight: "semibold")[Tooling & app:] Ansible, Kustomize, SOPS, KubeLinter, kubeconform, Docker Engine, Tart/Rosetta, Nix/flake-parts, Python, TypeScript/Vue
     ]
   ]
 ]
 
 #par(spacing: 0.5pt)[]
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer | Partner Integrations",
   location: "Amsterdam, Netherlands",
-  date: "July 2025 – Oct 2025",
+  date: "Jul 2025 – Oct 2025",
   description: "Vox AI",
 )
 
 #[
   #set par(spacing: 1.0em)
   #resume-item[
-    Built backend integrations for a voice-AI drive-thru platform, working directly with founders under two-week delivery windows.\
-
-    1. Streamorders.com DSP integration: OAuth 2.0 server and location-management API
+    Shipped backend integrations for a voice-AI drive-thru platform, working directly with founders.\
     #pad(left: 1em)[
-      Implemented serverless AWS infrastructure for the partner data-exchange protocol, including authentication, tracing, and deployment automation.
-    ]
-    #pad(left: 1em)[
-      - Built an AWS Cognito-based OAuth 2.0/OIDC service with PKCE enforcement and compatibility handling for non-compliant partner clients.
-      - Added correlation IDs for end-to-end tracing across authorization, token, and webhook flows.
-      - Built a multi-tenant location-management API using a DynamoDB repository pattern and AWS X-Ray integration.
-      - Structured the CDK stack to avoid 15–40-minute Cognito/CloudFront reprovisioning during iteration.
-      - Added X-Ray distributed tracing, correlation IDs in logs and headers, AWS Lambda Powertools, and EventBridge/SQS monitoring for OAuth events.
-    ]
+      - Delivered an OAuth 2.0/OIDC integration bridging AWS Cognito and a third-party DSP protocol within two weeks, enforcing PKCE while handling non-compliant partner clients.\
 
-    2. POS menu transformation system for Redcat integration
+      - Built a multi-tenant location-management API on DynamoDB; added correlation IDs, X-Ray, Lambda Powertools, and EventBridge/SQS monitoring across authorization, token, and webhook flows.\
 
-    #pad(left: 1em)[
-      Built a deterministic pipeline that converted flat POS data into nested and reference structures for voice-ordering RAG. Resolved ambiguity, circular dependencies, and orphaned references with transformations resilient to upstream schema changes.
-    ]
+      - Structured the CDK stack to avoid 15–40 minutes of Cognito/CloudFront reprovisioning per iteration.\
 
-    3. RAG data-quality engineering and CI integration
-
-    #pad(left: 1em)[
-      Converted noisy POS inputs into retrieval-ready structures and added CI validation to catch regressions from schema and data changes.
-    ]
-
-    #pad[#text(weight: "semibold")[Achievements:]]
-    #pad(left: 1em)[
-      - Delivered a working OAuth 2.0 integration bridging AWS Cognito and a third-party DSP protocol within two weeks.
-      - Built and tested a RAG-oriented menu mapper that handled poor data quality and complex hierarchical and reference relationships.
-      - Implemented correlation ID tracing that provided sub-second visibility across distributed OAuth flows.
-      - Integrated RAG data-quality checks into CI workflows to catch regressions from upstream POS schema and data changes.
+      - Built a deterministic POS-to-RAG transformation pipeline that resolved ambiguity, circular dependencies, and orphaned references while remaining stable across upstream schema changes; integrated data-quality checks into CI.
     ]
 
     #pad[
-      #text(weight: "semibold")[Platform & services:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK (IaC)
+      #text(weight: "semibold")[Platform:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK
 
       #text(weight: "semibold")[App stack:] TypeScript, Python 3.12+, Pydantic, FastAPI, Mangum, Moto, pytest/pytest-asyncio, Vitest, HTTPX, uv
     ]
@@ -357,54 +325,45 @@
 ]
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer",
   location: "Netherlands",
   date: "2022 – Present",
-  description: "Freelance / contracting",
+  description: "Selected contracts and open-source work",
 )
 
 #[
   #set par(spacing: 1.0em)
   #resume-item[
-    Delivered platform, data, and systems engineering across client and open-source projects:
-
     #pad(left: 1em)[
-      - Open-source contribution (tailscale/tailscale): landed Unix socket backend support for `tailscale serve unix:/path/to/socket` across `cmd/tailscale` and `ipn`, enabling services on local sockets to be exposed over Tailscale without TCP bridging and with safeguards for sensitive sockets.\
+      - Tailscale: landed upstream Unix domain socket support for `tailscale serve unix:/path/to/socket` across `cmd/tailscale` and `ipn`, exposing services bound to local sockets over Tailscale without TCP bridging and with safeguards against exposing tailscaled's own socket.\
 
-      - Open-source contribution (blacktop/ipsw): fixed demangling of internal symbols, including `.cold.*`, to improve the readability and correctness of disassembly output.\
+      - ipsw: landed upstream demangling support for internal symbols, including `.cold.*`, improving disassembly readability and correctness.\
 
-      - Agentic protocol contribution (opencode-antigravity-auth): reverse-engineered signed payload handling for Claude 4.6 interleaved thinking in a private Google Antigravity API passthrough; preserved valid signatures and removed only invalid ones to prevent model instability and reasoning-state leakage.\
+      - Deliverect: extended the data model and API behavior of a restaurant-automation PaaS.\
+        #text(weight: "semibold")[Stack:] Python, Eve, Celery, GKE, TypeScript/React, Redis, MinIO, Terraform, Helm\
 
-      - Deliverect, full-cycle restaurant automation PaaS: extended the ordering data model and API behavior.\
-        #text(weight: "semibold")[Stack:] Python, Eve, Celery, Kubernetes (GKE), TypeScript, React, Redis, MinIO (local backend),
-        Terraform, Helm\
+      - Ahold Delhaize (Albert Heijn): built an online data ingestion platform for internal compliance and R&D analytics.\
+        #text(weight: "semibold")[Stack:] Go, AKS, Strimzi/Kafka, Argo CD, Airflow, Spark, Terraform, Helm\
 
-      - Ahold Delhaize (Albert Heijn): online data-ingestion platform for internal compliance and R&D analytics.\
-        #text(weight: "semibold")[Stack:] Go, Kubernetes (AKS), Strimzi (Kafka), GitOps (Argo CD), Airflow, Spark, Terraform, Helm\
+      - Private client: built taxi-terminal telemetry ingestion for compliance and fraud analysis.\
+        #text(weight: "semibold")[Stack:] Go, AKS, Kafka, PostgreSQL, Terraform, Helm\
 
-      - Private customer: taxi-terminal telemetry ingestion for compliance and fraud analysis.\
-        #text(weight: "semibold")[Stack:] Go, Kubernetes (AKS), Kafka, PostgreSQL, Terraform, Helm\
+      - LEGO: built internal IAM and identity-provider functionality.\
+        #text(weight: "semibold")[Stack:] Azure Functions, SAML IdP, Python\
 
-      - LEGO: internal IAM and identity-provider functionality.\
-        #text(weight: "semibold")[Stack:] Azure Functions, Azure SAML identity provider, Python
+      - Private client: built a cloud video-conversion service.\
+        #text(weight: "semibold")[Stack:] C++20, CMake/Ninja, Go, gRPC-Gateway, FFmpeg, EKS, CloudWatch, Airflow, Nix, Terranix, Helm\
 
-      - Private customer: cloud-based video-conversion service.\
-        #text(weight: "semibold")[Stack:] C++20, CMake, Ninja, Go, gRPC-Gateway, FFmpeg, Kubernetes (EKS), CloudWatch, Airflow,
-        Nix, Terraform (Terranix), Helm\
-
-      - Private customer: custom video-calling service.\
-        #text(weight: "semibold")[Stack:] C++23, CMake, Ninja, Asio, libdatachannel (WebRTC stack), Nix, Ansible\
-
-      - Pet project (in development): configurable HFT matching engine focused on high-throughput, low-latency order matching for exchanges and arbitrage systems.\
-        #text(weight: "semibold")[Stack:] C++23, SIMD intrinsics, Cap'n Proto, Go
+      - Private client: built a custom video-calling service.\
+        #text(weight: "semibold")[Stack:] C++23, CMake/Ninja, Asio, libdatachannel (WebRTC), Nix, Ansible
     ]
 
   ]
 ]
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Core Software Engineer",
   location: "Haarlem, Netherlands",
   date: "Nov 2019 – Sep 2021",
@@ -413,26 +372,15 @@
 #[
   #set par(spacing: 1.0em)
   #resume-item[
-    As a member of the AIMMS PRO core team:
-
-    1. AWS-to-Azure platform migration
+    Built core platform and migration tooling as a member of the AIMMS PRO core team:
     #pad(left: 1em)[
-      - Configured RBAC for the Azure landing zone, bootstrapped Terraform state, and implemented supporting IaC.
-      - Migrated Java and Scala backend services from ECS to AKS, adapting them to the Kubernetes API.
-    ]
+      - Migrated Java and Scala backend services from ECS to AKS; configured landing-zone RBAC, bootstrapped Terraform state, and delivered supporting IaC.\
 
-    2. Core C++ platform and developer tooling
-    #pad(left: 1em)[
-      - Built a C++17 microservice template with an API-first protobuf DSL used for both gRPC and REST surfaces.
-      - Worked on internal developer-platform infrastructure and package registries (Conan, Artifactory).
-      - Built PoCs and delivered demos to promote adoption of the developer-platform tooling.
-    ]
+      - Built a C++17 microservice template with an API-first protobuf DSL for gRPC and REST surfaces; contributed to Conan/Artifactory developer-platform infrastructure; built PoCs and delivered demos for the tooling.\
 
-    #pad[#text(weight: "semibold")[Achievements:]]
-    #pad(left: 1em)[
-      - Improved cost efficiency and throughput predictability for compute-heavy optimization workloads with nondeterministic convergence by implementing Kubernetes-native bin packing through resource requests/limits and affinity rules, priority classes, and pre-warmed spare capacity using Cluster Autoscaler and taints/tolerations.
-      - Built migration tooling for sensitive, business-critical customer data in Amazon RDS.
-      - Built a declarative-schema CRUD generator for administrative and internal tools, reducing repetitive implementation work.
+      - Improved cost efficiency and throughput predictability for compute-heavy, nondeterministic optimization workloads by implementing Kubernetes-native bin packing with resource requests/limits, affinity, priority classes, pre-warmed capacity, Cluster Autoscaler, and taints/tolerations.
+
+      - Built migration tooling for sensitive, business-critical customer data in Amazon RDS and a declarative-schema CRUD generator for administrative and internal tools.
     ]
 
     #pad[
@@ -442,7 +390,7 @@
 ]
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer",
   location: "Amsterdam, Netherlands",
   date: "Jan 2018 – Oct 2019",
@@ -451,15 +399,9 @@
 #[
   #set par(spacing: 1.0em)
   #resume-item[
-    Implemented features and bug fixes in HVR's high-throughput, log-based data-replication engine.
     #pad(left: 1em)[
-      - Contributed to core replication workflows.
-      - Reverse-engineered Oracle histogram metadata to support custom sharding functionality.
-      - Built a Go REST service for cloud integration.
-    ]
+      - Extended HVR's high-throughput, log-based replication engine; reverse-engineered Oracle histogram metadata for custom sharding and built a Go REST service for cloud integration.\
 
-    #pad[#text(weight: "semibold")[Achievements:]]
-    #pad(left: 1em)[
       - Rewrote a core feature-flag transpiler used in HVR's CI/CD pipeline, reducing runtime from over one minute to five seconds on a critical build path.
     ]
 
@@ -470,7 +412,7 @@
 ]
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Software Engineer",
   location: "Eindhoven, Netherlands",
   date: "2017",
@@ -482,7 +424,7 @@
 ]
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer",
   location: "St. Petersburg, Russia",
   date: "2014 – 2017",
@@ -492,10 +434,8 @@
   #set par(spacing: 1.0em)
   #resume-item[
     Built collaboration-engine features for an on-premises office suite and developed its spreadsheet client for Samsung Tizen.
-
-    #pad[#text(weight: "semibold")[Achievements:]]
     #pad(left: 1em)[
-      - Built a cross-platform FreeType-based font-rendering engine with subpixel positioning for scalable document layouts and integrated it into a large enterprise codebase.
+      - Independently built a cross-platform FreeType-based font-rendering engine with subpixel positioning for scalable document layouts and integrated it into a large enterprise codebase.
 
       - Developed advanced spreadsheet editing for Samsung Tizen using a declarative, compile-time state machine to avoid dynamic dispatch overhead and resolve editing edge cases observed in competing web suites.
     ]
@@ -506,7 +446,7 @@
 
 #par(spacing: 1em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Senior Software Engineer",
   location: "St. Petersburg, Russia",
   date: "2014",
@@ -518,16 +458,11 @@
   #resume-item[
     Built C++11 microservices for the banking and exchange subsystem of a cryptocurrency mining pool:
     #pad(left: 1em)[
-      - Designed an Asio-based service framework.
-      - Implemented multi-stage, fault-tolerant transactions.
-      - Reduced the risk of direct financial loss through append-only storage, two-factor transactions, circuit breakers, alerting, rollback paths, and extensive testing.
-      - Shipped the zero-to-one production release with a three-engineer team, owning the C++ subsystem end to end.
-    ]
+      - Designed an Asio-based service framework and implemented all C++11 banking services, including multi-stage, fault-tolerant transactions.\
 
-    #pad[#text(weight: "semibold")[Achievements:]]
-    #pad(left: 1em)[
-      - Designed and implemented all C++11 services for the banking subsystem, including multi-stage transactions and circuit breakers with rollback paths.
-      - Delivered the production launch in under two months with end-to-end ownership of reliability under financial risk.
+      - Protected financial state with append-only storage, two-factor transactions, circuit breakers, alerting, rollback paths, and extensive testing.\
+
+      - Shipped the zero-to-one production release in under two months with a three-engineer team, owning the C++ subsystem end to end.
     ]
 
     #pad[#text(weight: "semibold")[Stack:] C++11, Core Java, Groovy, Ruby (Chef)]
@@ -537,7 +472,7 @@
 #par(spacing: 1em)[]
 
 = Education
-#resume-entry(
+#cv-entry(
   title: "B.Sc. in Computer Science and Engineering",
   location: "Novosibirsk, Russia",
   date: "2002 – 2007",
@@ -546,7 +481,7 @@
 
 #par(spacing: 2.0em)[]
 
-#resume-entry(
+#cv-entry(
   title: "Previous work history",
   date: "2005 – 2014",
   description: "Available upon request",
