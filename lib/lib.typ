@@ -2,13 +2,14 @@
 
 #let default-accent-color = rgb("#262F99")
 #let skill-color = rgb("#282f93")
-#let skill-item-gap = 0.55em
-#let skill-subgroup-gap = 0.9em
+#let skill-wrap-gap = 0.55em
+#let skill-item-gap = 0.6em
+// #let skill-list-gap = 0.9em
 
-#let skill-line(skills) = {
+#let skill-list(skills) = {
   set par(
     justify: false,
-    leading: 0.5em,
+    leading: skill-wrap-gap,
   )
   align(left, skills.join(", "))
 }
@@ -44,7 +45,7 @@
   let values = if divider {
     (align(horizon, box(width: 100%, line(length: 100%, stroke: 0.5pt))),)
   } else {
-    (skill-line(skills),)
+    (skill-list(skills),)
   }
 
   skill-row(
@@ -53,35 +54,24 @@
   )
 }
 
+/// Renders an ordered sequence of skills under one label.
+///
+/// Each empty array inserts a line break at its position.
 #let my-resume-skill-item(item, skills) = {
-  let rows = ()
-  let row = ()
-  for skill in skills {
-    if type(skill) == array {
-      if row.len() > 0 {
-        rows.push(row)
-      }
-      row = skill
-    } else {
-      row.push(skill)
-    }
-  }
-  if row.len() > 0 {
-    rows.push(row)
-  }
+  let skill-lists = skills.split(())
 
-  if rows.len() == 1 {
+  if skill-lists.len() == 1 {
     skill-row(
       skill-label(item),
-      (skill-line(rows.first()),),
+      (skill-list(skill-lists.first()),),
     )
   } else {
     skill-row(
       skill-label(item),
       (
         stack(
-          spacing: skill-subgroup-gap,
-          ..rows.map(skill-line),
+          spacing: skill-wrap-gap,
+          ..skill-lists.map(skill-list),
         ),
       ),
     )
