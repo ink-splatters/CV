@@ -10,7 +10,7 @@
 ///
 /// This matches modern-cv's resume-entry arguments, spacing, and heading
 /// styles. Grid tracks keep the title and location stable across page breaks.
-#let cv-entry(
+#let my-resume-entry(
   title: none,
   location: "",
   date: "",
@@ -48,8 +48,8 @@
   ]
 }
 
-/// Separates adjacent work entries without orphaning the rule at a page end.
-#let work-entry-divider() = block(
+/// Separates adjacent resume entries without orphaning the rule at a page end.
+#let resume-entry-divider() = block(
   width: 100%,
   above: 0pt,
   below: 0pt,

@@ -262,7 +262,7 @@
 
 = Work Experience
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer",
   location: "Rotterdam, Netherlands",
   date: "Mar 2026 – Jul 2026",
@@ -294,9 +294,9 @@
   ]
 ]
 
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer | Partner Integrations",
   location: "Amsterdam, Netherlands",
   date: "Jul 2025 – Oct 2025",
@@ -324,9 +324,9 @@
     ]
   ]
 ]
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer",
   location: "Netherlands",
   date: "2022 – Present",
@@ -362,9 +362,9 @@
 
   ]
 ]
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Core Software Engineer",
   location: "Haarlem, Netherlands",
   date: "Nov 2019 – Sep 2021",
@@ -389,9 +389,9 @@
     ]
   ]
 ]
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer",
   location: "Amsterdam, Netherlands",
   date: "Jan 2018 – Oct 2019",
@@ -411,9 +411,9 @@
     ]
   ]
 ]
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Software Engineer",
   location: "Eindhoven, Netherlands",
   date: "2017",
@@ -423,9 +423,9 @@
   Implemented backend components of the Mapscape NDS compiler for raw map data parsing and introduced parallel parsing to reduce processing time.\
   #pad[#text(weight: "semibold")[Stack:] C++11/14, Boost, GTest, SQLite, shell, Python, Airflow]
 ]
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer",
   location: "St. Petersburg, Russia",
   date: "2014 – 2017",
@@ -445,9 +445,9 @@
   ]
 ]
 
-#work-entry-divider()
+#resume-entry-divider()
 
-#cv-entry(
+#my-resume-entry(
   title: "Senior Software Engineer",
   location: "St. Petersburg, Russia",
   date: "2014",
@@ -473,7 +473,7 @@
 #par(spacing: 1em)[]
 
 = Education
-#cv-entry(
+#my-resume-entry(
   title: "B.Sc. in Computer Science and Engineering",
   location: "Novosibirsk, Russia",
   date: "2002 – 2007",
@@ -482,7 +482,7 @@
 
 #par(spacing: 2.0em)[]
 
-#cv-entry(
+#my-resume-entry(
   title: "Previous work history",
   date: "2005 – 2014",
   description: "Available upon request",
