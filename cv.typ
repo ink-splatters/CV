@@ -21,6 +21,7 @@
 )
 
 #show text: set text(hyphenate: false)
+#set line(stroke: 0.5pt)
 #set list(marker: ([•], [-]))
 
 = About
@@ -293,7 +294,7 @@
   ]
 ]
 
-#par(spacing: 0.5pt)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Senior Software Engineer | Partner Integrations",
@@ -323,7 +324,7 @@
     ]
   ]
 ]
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Senior Software Engineer",
@@ -361,7 +362,7 @@
 
   ]
 ]
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Core Software Engineer",
@@ -388,7 +389,7 @@
     ]
   ]
 ]
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Senior Software Engineer",
@@ -410,7 +411,7 @@
     ]
   ]
 ]
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Software Engineer",
@@ -422,7 +423,7 @@
   Implemented backend components of the Mapscape NDS compiler for raw map data parsing and introduced parallel parsing to reduce processing time.\
   #pad[#text(weight: "semibold")[Stack:] C++11/14, Boost, GTest, SQLite, shell, Python, Airflow]
 ]
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Senior Software Engineer",
@@ -444,7 +445,7 @@
   ]
 ]
 
-#par(spacing: 1em)[]
+#work-entry-divider()
 
 #cv-entry(
   title: "Senior Software Engineer",
