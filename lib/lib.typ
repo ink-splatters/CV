@@ -48,6 +48,15 @@
   ]
 }
 
+/// Separates adjacent work entries without orphaning the rule at a page end.
+#let work-entry-divider() = block(
+  width: 100%,
+  above: 0pt,
+  below: 0pt,
+  sticky: true,
+  line(length: 100%, stroke: 0.5pt),
+)
+
 #let skill-list(skills) = {
   set par(
     justify: false,
