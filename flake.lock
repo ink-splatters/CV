@@ -13,16 +13,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1765378755,
-        "narHash": "sha256-OV5+uC6CcpD/R3lbjl+21GWkVGm5VN6LfAWt8Iw/7Xg=",
+        "lastModified": 1786924639,
+        "narHash": "sha256-h00oXYBbnHqjUZ9cnI4Ngngf13IbwPIbjzs+E4JMtA0=",
         "owner": "ink-splatters",
         "repo": "bake",
-        "rev": "acfa2de07de3d596cb946321704660d6b7bb78e0",
+        "rev": "5a33f988a336f7ae95e87df9ff1db3ddbf92200a",
         "type": "github"
       },
       "original": {
         "owner": "ink-splatters",
-        "ref": "v1.4.6-dev",
+        "ref": "v1.4.6",
         "repo": "bake",
         "type": "github"
       }

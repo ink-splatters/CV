@@ -3,7 +3,7 @@
 
   inputs = {
     bake = {
-      url = "github:ink-splatters/bake?ref=v1.4.6-dev";
+      url = "github:ink-splatters/bake?ref=v1.4.6";
       inputs = {
         flake-parts.follows = "flake-parts";
         nixpkgs.follows = "nixpkgs";
