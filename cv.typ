@@ -1,32 +1,21 @@
 #import "lib/lib.typ": *
 
-#show: resume.with(
+#show: cv-document.with(
   author: (
     firstname: "Peter",
     lastname: "Asanov",
     email: "ink.splatters@pm.me",
-    github: "github.com/ink-splatters",
-    linkedin: "linkedin.com/in/peter-asanov",
+    github: "ink-splatters",
+    linkedin: "peter-asanov",
     phone: "+31629598355",
-    address: "Amsterdam, Netherlands",
+    address: "Almere, Netherlands",
     positions: ("Senior Software Engineer",),
   ),
-  profile-picture: none,
-  accent-color: default-accent-color,
-  colored-headers: true,
-  show-footer: false,
-  paper-size: "a4", // Use A4 for Dutch, US-letter for FAANG
-  font: ("Roboto", "Source Sans Pro"),
-  header-font: "Source Sans Pro",
 )
 
-#show text: set text(hyphenate: false)
-#set line(stroke: 0.5pt)
-#set list(marker: ([•], [-]))
-
 = About
-#text(weight: "light")[
-  Senior software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture through production.
+#about[
+  Senior software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture to production, with a strong focus on security. Contributor to widely used open-source projects.
 ]
 
 = Skills
@@ -118,12 +107,6 @@
   "Unix/raw sockets",
 ))
 
-#my-resume-skill-section("Platform & Infrastructure")
-#my-resume-skill-item("Cloud", (
-  "AWS (EC2/ECS/Lambda)",
-  "Azure (VM/Functions)",
-  "GCP (GCE/App Engine/Functions)",
-))
 #my-resume-skill-item("Virtualization/containers", (
   "Proxmox",
   "QEMU/KVM",
@@ -131,11 +114,18 @@
   "LXC/Incus",
   "Docker Engine/containerd",
 ))
+
+#my-resume-skill-section("Platform & Infrastructure")
 #my-resume-skill-item("Bare-metal/edge", (
   "iPXE",
   "Matchbox (Terraform provider)",
   "Flatcar/systemd-sysext",
   "Keylime (TPM 2.0 attestation)",
+))
+#my-resume-skill-item("Cloud", (
+  "AWS (EC2/ECS/Lambda)",
+  "Azure (VM/Functions)",
+  "GCP (GCE/App Engine/Functions)",
 ))
 #my-resume-skill-item("Kubernetes", (
   "Talos Linux",
@@ -182,6 +172,16 @@
   "CloudWatch/X-Ray",
   "Azure Monitor/App Insights",
 ))
+
+#my-resume-skill-section("Security")
+#my-resume-skill-item("Security design", (
+  "PoLP",
+  "authz (ABAC, RBAC)",
+  "trust models and Zero Trust",
+  "attestation",
+  "isolation",
+  "audit",
+))
 #my-resume-skill-item("IAM/IdPs", (
   "OAuth 2.0/OIDC (PKCE/mTLS/DPoP)",
   "SAML",
@@ -189,13 +189,13 @@
   "Cognito",
   "Auth0",
 ))
-#my-resume-skill-item("Access", (
-  "RBAC",
-  "PoLP",
-  "tenant isolation",
-  "Zero Trust",
+#my-resume-skill-item("Cryptography", (
+  "Curve25519",
+  "ECDH",
+  "EdDSA",
+  "Ristretto",
+  "ZK-SNARKs/ZK-STARKs",
 ))
-#pagebreak()
 
 #my-resume-skill-section("Data")
 #my-resume-skill-item("DBs", (
@@ -235,6 +235,7 @@
 #my-resume-skill-item("NLP", (
   "POS tagging",
   "lemmatization",
+  "dependency parsing",
   "NER",
   "NLTK",
   "spaCy",
@@ -242,25 +243,74 @@
 ))
 #my-resume-skill-item("LLM integration", (
   "RAG",
-  "retrieval-ready data",
-  "agent orchestration",
-  "stateful multi-turn workflows",
+  "tool integration (MCP)",
+  "API interoperability",
 ))
 
-#my-resume-skill-section(
-  "Cryptography",
-  skills: (
-    "Curve25519",
-    "ECDH",
-    "EdDSA",
-    "Ristretto",
-    "ZK-SNARKs/ZK-STARKs",
-  ),
-  divider: false,
-)
+= FOSS contributions
 
+#contributions((
+  contribution-entry(
+    "Tailscale",
+    "https://github.com/tailscale/tailscale",
+    "/assets/tailscale.svg",
+    logo-size: 22pt,
+    reference: "tailscale/tailscale",
+    reference-url: "https://github.com/tailscale/tailscale",
+    description: "Zero Trust identity-based connectivity platform",
+  )[
+    - Unix-domain socket support for Tailscale Serve, exposing local HTTP services over the tailnet without a TCP bridge.
+  ],
+  contribution-entry(
+    "ipsw",
+    "https://github.com/blacktop/ipsw",
+    "/assets/ipsw.svg",
+    reference: "blacktop/ipsw",
+    description: "iOS/macOS Research Swiss Army Knife",
+  )[
+    - dyld shared-cache fixes: address mapping, v4 rebasing and v5 pointer decoding.
+
+    - Objective-C metadata parsing and ExclaveKit runtime resolution.
+
+    - C++ symbol demangling for compiler-outlined cold functions.
+  ],
+))
 
 = Work Experience
+
+#my-resume-entry(
+  title: "Senior Software Engineer | Platform Architecture & Security",
+  location: "Netherlands",
+  date: "Started in Aug 2026",
+  description: "Nebul",
+)
+
+#[
+  #set par(spacing: 1.0em)
+  #resume-item[
+    Own the architecture, planning and implementation of a declarative systems management platform for Nebul’s datacenter infrastructure, designed for isolated networks and combining configuration enforcement, endpoint security and compliance reporting.
+
+    #text(weight: "semibold")[Contributions:]
+
+    #pad(left: 1em)[
+      - Consolidate over 30 ADRs into a coherent system specification by building NLP-assisted pipeline for architectural review and decision traceability.\
+
+      - Unify and extend existing security controls into a system-wide model, defining trust relationships and least-privilege enforcement at service and operating-system levels. Validate fail-closed process supervision through crash-injection tests. Design integration with Nebul’s node provisioning platform to anchor agent identity in each node’s TPM 2.0 root of trust.\
+
+      - Design operational logging and audit flows, including durable central collection of node audit records and verified server acknowledgement of operation intent before sensitive changes.\
+
+      - Establish the engineering foundation: reproducible builds, CI and dev workflow.\
+
+      - Prototype agent communication for isolated networks using outbound-only connections (HTTP/3, mTLS).
+    ]
+
+    #pad[
+      #text(weight: "semibold")[Tech:] Go, Protobuf Editions/Buf/gRPC; Nix/flake-parts, GitLab CI, Talos Linux, Argo CD; mTLS, QUIC/WebTransport, HTTP/2 CONNECT; OpenBao (PKI, Transit), cosign, TPM 2.0; SELinux, bubblewrap, seccomp, Linux namespaces, cgroup v2; Python/spaCy, NetworkX, Markdown AST (mdast)
+    ]
+  ]
+]
+
+#resume-entry-divider()
 
 #my-resume-entry(
   title: "Senior Software Engineer",
@@ -284,8 +334,10 @@
 
       - Instrumented UAV ingestion for Zenoh freshness and forwarding, Redis Streams/DLQ processing, and end-to-end latency; added alerts for Flux reconciliation, ingress health, and remote-write failures.\
 
-      - Enabled unmodified amd64 workloads on Apple Silicon by replacing k3s's embedded containerd with Docker Engine and registering Rosetta through binfmt_misc, bypassing an OCI runtime/seccomp incompatibility.
+      - Enabled unmodified amd64 workloads on Apple Silicon by replacing k3s's embedded containerd with Docker Engine and registering Rosetta through binfmt_misc, bypassing an OCI runtime/seccomp incompatibility.\
+
     ]
+
     #pad[
       #text(weight: "semibold")[Platform:] k3s, Flux CD, kube-vip, MetalLB (L2), Tailscale, Traefik, CloudNativePG, PostgreSQL (PostGIS, TimescaleDB), Redis Streams, Zenoh, Prometheus/Grafana, RustFS
 
@@ -330,34 +382,30 @@
   title: "Senior Software Engineer",
   location: "Netherlands",
   date: "2022 – Present",
-  description: "Selected contracts and open-source work",
+  description: "Selected contracts",
 )
 
 #[
   #set par(spacing: 1.0em)
   #resume-item[
     #pad(left: 1em)[
-      - Tailscale: landed upstream Unix domain socket support for `tailscale serve unix:/path/to/socket` across `cmd/tailscale` and `ipn`, exposing services bound to local sockets over Tailscale without TCP bridging and with safeguards against exposing tailscaled's own socket.\
+      - #text(weight: "bold")[Deliverect:] extended the data model and API behavior of a restaurant-automation PaaS.\
+        Stack: Python, Eve, Celery, GKE, TypeScript/React, Redis, MinIO, Terraform, Helm\
 
-      - ipsw: landed upstream demangling support for internal symbols, including `.cold.*`, improving disassembly readability and correctness.\
+      - #text(weight: "bold")[Ahold Delhaize (Albert Heijn):] built an online data ingestion platform for internal compliance and R&D analytics.\
+        Stack: Go, AKS, Strimzi/Kafka, Argo CD, Airflow, Spark, Terraform, Helm\
 
-      - Deliverect: extended the data model and API behavior of a restaurant-automation PaaS.\
-        #text(weight: "semibold")[Stack:] Python, Eve, Celery, GKE, TypeScript/React, Redis, MinIO, Terraform, Helm\
+      - #text(weight: "bold")[Private client:] built taxi-terminal telemetry ingestion for compliance and fraud analysis.\
+        Stack: Go, AKS, Kafka, PostgreSQL, Terraform, Helm\
 
-      - Ahold Delhaize (Albert Heijn): built an online data ingestion platform for internal compliance and R&D analytics.\
-        #text(weight: "semibold")[Stack:] Go, AKS, Strimzi/Kafka, Argo CD, Airflow, Spark, Terraform, Helm\
+      - #text(weight: "bold")[LEGO:] built internal IAM and identity-provider functionality.\
+        Stack: Azure Functions, SAML IdP, Python\
 
-      - Private client: built taxi-terminal telemetry ingestion for compliance and fraud analysis.\
-        #text(weight: "semibold")[Stack:] Go, AKS, Kafka, PostgreSQL, Terraform, Helm\
+      - #text(weight: "bold")[Private client:] built a cloud video-conversion service.\
+        Stack: C++20, CMake/Ninja, Go, gRPC-Gateway, FFmpeg, EKS, CloudWatch, Airflow, Nix, Terranix, Helm\
 
-      - LEGO: built internal IAM and identity-provider functionality.\
-        #text(weight: "semibold")[Stack:] Azure Functions, SAML IdP, Python\
-
-      - Private client: built a cloud video-conversion service.\
-        #text(weight: "semibold")[Stack:] C++20, CMake/Ninja, Go, gRPC-Gateway, FFmpeg, EKS, CloudWatch, Airflow, Nix, Terranix, Helm\
-
-      - Private client: built a custom video-calling service.\
-        #text(weight: "semibold")[Stack:] C++23, CMake/Ninja, Asio, libdatachannel (WebRTC), Nix, Ansible
+      - #text(weight: "bold")[Private client:] built a custom video-calling service.\
+        Stack: C++23, CMake/Ninja, Asio, libdatachannel (WebRTC), Nix, Ansible
     ]
 
   ]
@@ -381,11 +429,16 @@
 
       - Improved cost efficiency and throughput predictability for compute-heavy, nondeterministic optimization workloads by implementing Kubernetes-native bin packing with resource requests/limits, affinity, priority classes, pre-warmed capacity, Cluster Autoscaler, and taints/tolerations.
 
-      - Built migration tooling for sensitive, business-critical customer data in Amazon RDS and a declarative-schema CRUD generator for administrative and internal tools.
     ]
 
-    #pad[
-      #text(weight: "semibold")[Stack:] ECS, EC2, RDS, CloudWatch, Go, Python, Java, Scala, C++17, TypeScript, React, Conan, Artifactory, CMake, Ninja, gRPC-Gateway, Kubernetes (AKS), Application Insights, Terraform, Helm
+    #entry-tail[
+      #pad(left: 1em)[
+        - Built migration tooling for sensitive, business-critical customer data in Amazon RDS and a declarative-schema CRUD generator for administrative and internal tools.
+      ]
+
+      #pad[
+        #text(weight: "semibold")[Stack:] ECS, EC2, RDS, CloudWatch, Go, Python, Java, Scala, C++17, TypeScript, React, Conan, Artifactory, CMake, Ninja, gRPC-Gateway, Kubernetes (AKS), Application Insights, Terraform, Helm
+      ]
     ]
   ]
 ]
@@ -401,9 +454,11 @@
   #set par(spacing: 1.0em)
   #resume-item[
     #pad(left: 1em)[
-      - Extended HVR's high-throughput, log-based replication engine; reverse-engineered Oracle histogram metadata for custom sharding and built a Go REST service for cloud integration.\
+      - Worked on HVR's high-throughput, log-based replication engine. Reverse-engineered Oracle histogram internals to enable a specific HVR sharding use case.\
 
-      - Rewrote a core feature-flag transpiler used in HVR's CI/CD pipeline, reducing runtime from over one minute to five seconds on a critical build path.
+      - Rewrote the feature-flag DSL-to-C transpiler used in every HVR build, including multiple-inheritance and range-override resolution. Achieved an order-of-magnitude speedup, substantially reducing CI compute costs. Built an HTML documentation generator, extending the DSL with annotation support.\
+
+      - Built a Go REST service for cloud integration.
     ]
 
     #pad[
@@ -469,8 +524,6 @@
     #pad[#text(weight: "semibold")[Stack:] C++11, Core Java, Groovy, Ruby (Chef)]
   ]
 ]
-
-#par(spacing: 1em)[]
 
 = Education
 #my-resume-entry(
