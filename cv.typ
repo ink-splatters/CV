@@ -179,9 +179,10 @@
   "Auth0",
 ))
 #my-resume-skill-item("Security design", (
-  "trust models and Zero Trust",
   "PoLP",
-  "authz models (ABAC, RBAC)",
+  "authz (ABAC, RBAC)",
+  "trust models and Zero Trust",
+  "attestation",
   "isolation",
   "audit",
 ))
