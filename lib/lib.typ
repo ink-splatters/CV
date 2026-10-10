@@ -3,8 +3,29 @@
 #let default-accent-color = rgb("#262F99")
 #let skill-color = rgb("#282f93")
 #let skill-wrap-gap = 0.55em
-#let skill-item-gap = 0.6em
+#let skill-item-gap = 0.5em
 // #let skill-list-gap = 0.9em
+
+#let cv-document(author: (:), body) = {
+  show: resume.with(
+    author: author,
+    profile-picture: none,
+    accent-color: default-accent-color,
+    colored-headers: true,
+    show-footer: false,
+    paper-size: "a4",
+    font: ("Roboto", "Source Sans Pro"),
+    header-font: "Source Sans Pro",
+  )
+  show text: set text(hyphenate: false)
+  set line(stroke: 0.5pt)
+  set list(marker: ([•], [-]))
+  body
+}
+
+#let about(body) = text(size: 10pt, weight: "light", body)
+
+#let entry-tail(body) = block(breakable: false, body)
 
 /// Renders a resume entry with fixed two-column headers.
 ///
@@ -57,7 +78,57 @@
   line(length: 100%, stroke: 0.5pt),
 )
 
+// Project entry using modern-cv's heading and body styles.
+#let contribution-reference(body) = text(size: 10pt, style: "normal", weight: "light", fill: color-darknight, body)
+
+#let contribution-entry(name, url, logo, reference: "", reference-url: none, description: "", body) = context block(
+  breakable: false,
+  above: 1em,
+  below: 1em,
+)[
+  #grid(
+    columns: (28pt, 1fr),
+    column-gutter: 10pt,
+    align: top,
+    // Optical sizing: the flat Tailscale mark carries more visual weight
+    // than the shaded ipsw cube. Keep the layout slot, not the artwork, equal.
+    block(width: 28pt, height: 28pt)[
+      #align(center + horizon)[
+        #let size = if name == "Tailscale" { 22pt } else { 28pt }
+        #image(logo, width: size, height: size, fit: "contain")
+      ]
+    ],
+    [
+      #grid(
+        // Both repository references share the width of the longer reference.
+        columns: (1fr, measure(contribution-reference[
+          #github-icon#h(3pt)tailscale/tailscale
+        ]).width),
+        column-gutter: 10pt,
+        align: (left + bottom, left + bottom),
+        heading(level: 2, link(url, name)),
+        contribution-reference[
+          #link(if reference-url == none { url } else { reference-url })[
+            #github-icon#h(3pt)#reference
+          ]
+        ],
+      )
+      #if description != "" {
+        v(2pt)
+        text(size: 10pt, style: "normal", weight: "light", fill: color-darknight, description)
+      }
+      #v(4pt)
+      #resume-item[
+        #set par(justify: false)
+        #set list(spacing: 0.9em)
+        #body
+      ]
+    ],
+  )
+]
+
 #let skill-list(skills) = {
+  set text(size: 10pt, weight: "light")
   set par(
     justify: false,
     leading: skill-wrap-gap,
@@ -99,10 +170,12 @@
     (skill-list(skills),)
   }
 
-  skill-row(
-    skill-label(item, size: 12pt, weight: "bold"),
-    values,
-  )
+  block(sticky: divider)[
+    #skill-row(
+      skill-label(item, size: 12pt, weight: "bold"),
+      values,
+    )
+  ]
 }
 
 /// Renders an ordered sequence of skills under one label.
