@@ -293,7 +293,7 @@
     #text(weight: "semibold")[Contributions:]
 
     #pad(left: 1em)[
-      - Consolidate over 30 ADRs into a coherent system specification by building NLP-assisted pipeline for architectural review and decision traceability.\
+      - Consolidate over 30 ADRs into a coherent system specification for architectural review and decision traceability through a purpose-built NLP-assisted pipeline.\
 
       - Unify and extend existing security controls into a system-wide model, defining trust relationships and least-privilege enforcement at service and operating-system levels. Validate fail-closed process supervision through crash-injection tests. Design integration with Nebul’s node provisioning platform to anchor agent identity in each node’s TPM 2.0 root of trust.\
 
