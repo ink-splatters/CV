@@ -272,3 +272,24 @@
     #body
   ]
 }
+
+// TODO: remove when upstream is released
+// modern-cv's default signature adds an empty line when the author has no
+// signature. Supply a corrected default instead of using its implementation.
+#let modern-cv-coverletter = coverletter
+
+#let coverletter(signature: none, ..args) = {
+  let named = args.named()
+  let author = named.at("author", default: (:))
+
+  if signature == none and author.at("signature", default: none) == none {
+    let alignment = named.at("signature-alignment", default: left)
+    let padding = named.at("signature-padding", default: (top: 1em))
+    signature = align(alignment, pad(..padding)[
+      #text(weight: "light")[Sincerely,] \
+      #text(weight: "bold")[#author.firstname #author.lastname]
+    ])
+  }
+
+  modern-cv-coverletter(..args, signature: signature)
+}
