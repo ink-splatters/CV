@@ -8,7 +8,7 @@
     github: "ink-splatters",
     linkedin: "peter-asanov",
     phone: "+31629598355",
-    address: "Almere, Netherlands",
+    address: "Almere, The Netherlands",
     positions: ("Senior Software Engineer",),
   ),
 )
