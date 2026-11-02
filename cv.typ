@@ -370,7 +370,7 @@
     ]
 
     #pad[
-      #text(weight: "semibold")[Platform:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK
+      #text(weight: "semibold")[Platform:] AWS Lambda, API Gateway, Cognito, DynamoDB, X-Ray, CloudWatch, EventBridge, SQS, CDK, Kafka
 
       #text(weight: "semibold")[App stack:] TypeScript, Python 3.12+, Pydantic, FastAPI, Mangum, Moto, pytest/pytest-asyncio, Vitest, HTTPX, uv
     ]
