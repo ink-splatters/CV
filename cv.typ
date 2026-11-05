@@ -113,6 +113,8 @@
   "Cloud Hypervisor",
   "LXC/Incus",
   "Docker Engine/containerd",
+  "Kata containers",
+  "Firecracker",
 ))
 
 #my-resume-skill-section("Platform & Infrastructure")
@@ -121,6 +123,7 @@
   "Matchbox (Terraform provider)",
   "Flatcar/systemd-sysext",
   "Keylime (TPM 2.0 attestation)",
+  "FaaS",
 ))
 #my-resume-skill-item("Cloud", (
   "AWS (EC2/ECS/Lambda)",
