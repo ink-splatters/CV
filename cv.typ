@@ -92,6 +92,8 @@
   "task scheduling",
   "VM/paging",
   "seccomp/SELinux",
+  "namespaces/cgroup v2",
+  "bubblewrap",
   "io_uring",
 ))
 
@@ -181,8 +183,9 @@
   "PoLP",
   "authz (ABAC, RBAC)",
   "trust models and Zero Trust",
-  "attestation",
-  "isolation",
+  "workload identity (SPIFFE/SPIRE)",
+  "node/workload attestation",
+  "privilege separation/isolation",
   "audit",
 ))
 #my-resume-skill-item("IAM/IdPs", (
@@ -226,6 +229,7 @@
   "Kafka",
   "RabbitMQ",
   "Pulsar",
+  "NATS",
 ))
 #my-resume-skill-item("Pipelines", (
   "Airflow",
@@ -284,31 +288,31 @@
 #my-resume-entry(
   title: "Senior Software Engineer | Platform Architecture & Security",
   location: "Netherlands",
-  date: "Started in Aug 2026",
+  date: "Aug 2026 - Oct 2026",
   description: "Nebul",
 )
 
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
-    Own the architecture, planning and implementation of a declarative systems management platform for Nebul’s datacenter infrastructure, designed for isolated networks and combining configuration enforcement, endpoint security and compliance reporting.
+    Owned the architecture, planning and implementation of a declarative systems management platform for Nebul’s datacenter infrastructure, designed for isolated networks and combining configuration enforcement, endpoint security and compliance reporting.
 
     #text(weight: "semibold")[Contributions:]
 
     #pad(left: 1em)[
-      - Consolidate over 30 ADRs into a coherent system specification for architectural review and decision traceability through a purpose-built NLP-assisted pipeline.\
+      - Consolidated over 30 ADRs into a coherent system specification for architectural review and decision traceability through a purpose-built NLP-assisted pipeline.\
 
-      - Unify and extend existing security controls into a system-wide model, defining trust relationships and least-privilege enforcement at service and operating-system levels. Validate fail-closed process supervision through crash-injection tests. Design integration with Nebul’s node provisioning platform to anchor agent identity in each node’s TPM 2.0 root of trust.\
+      - Unified and extended existing security controls into a system-wide model, defining trust relationships and least-privilege enforcement at service and operating-system levels. Validated fail-closed process supervision through crash-injection tests. Designed node-provisioning integration to enroll SPIRE agents via TPM 2.0–backed node attestation and bind management-agent SPIFFE identities to their nodes via workload registration and attestation.\
 
-      - Design operational logging and audit flows, including durable central collection of node audit records and verified server acknowledgement of operation intent before sensitive changes.\
+      - Designed operational logging and audit flows, including durable central collection of node audit records and verified server acknowledgement of operation intent before sensitive changes.\
 
-      - Establish the engineering foundation: reproducible builds, CI and dev workflow.\
+      - Established the engineering foundation: reproducible builds, CI and dev workflow.\
 
-      - Prototype agent communication for isolated networks using outbound-only connections (HTTP/3, mTLS).
+      - Prototyped outbound-only agent communication for isolated networks (HTTP/3, mTLS); considered NATS with SPIRE-issued X.509-SVIDs for mTLS client authentication and SPIFFE IDs mapped to NATS users with publish/subscribe permissions.
     ]
 
     #pad[
-      #text(weight: "semibold")[Tech:] Go, Protobuf Editions/Buf/gRPC; Nix/flake-parts, GitLab CI, Talos Linux, Argo CD; mTLS, QUIC/WebTransport, HTTP/2 CONNECT; OpenBao (PKI, Transit), cosign, TPM 2.0; SELinux, bubblewrap, seccomp, Linux namespaces, cgroup v2; Python/spaCy, NetworkX, Markdown AST (mdast)
+      #text(weight: "semibold")[Tech:] Go, Protobuf Editions/Buf/gRPC; Nix/flake-parts, GitLab CI, Ubuntu (managed nodes), Talos Linux, Argo CD; mTLS, QUIC/WebTransport, HTTP/2 CONNECT; SPIFFE/SPIRE, OpenBao (PKI, Transit), cosign, TPM 2.0; SELinux, bubblewrap, seccomp, Linux namespaces, cgroup v2; Python/spaCy, NetworkX, Markdown AST (mdast)
     ]
   ]
 ]
@@ -323,7 +327,7 @@
 )
 
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     Owned, re-architected, and shipped the infrastructure for Onboard Compute, an edge platform for UAV and vessel data ingestion, visualization, operational monitoring, and offshore cleanup planning.\
     #pad(left: 1em)[
@@ -359,7 +363,7 @@
 )
 
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     Shipped backend integrations for a voice-AI drive-thru platform, working directly with founders.\
     #pad(left: 1em)[
@@ -389,7 +393,7 @@
 )
 
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     #pad(left: 1em)[
       - #text(weight: "bold")[Deliverect:] extended the data model and API behavior of a restaurant-automation PaaS.\
@@ -422,7 +426,7 @@
   description: "AIMMS B.V.",
 )
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     Built core platform and migration tooling as a member of the AIMMS PRO core team:
     #pad(left: 1em)[
@@ -454,7 +458,7 @@
   description: "HVR Software (acquired by Fivetran)",
 )
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     #pad(left: 1em)[
       - Worked on HVR's high-throughput, log-based replication engine. Reverse-engineered Oracle histogram internals to enable a specific HVR sharding use case.\
@@ -490,7 +494,7 @@
   description: "New Cloud Technologies",
 )
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     Built collaboration-engine features for an on-premises office suite and developed its spreadsheet client for Samsung Tizen.
     #pad(left: 1em)[
@@ -513,7 +517,7 @@
 )
 
 #[
-  #set par(spacing: 1.0em)
+  #set par(spacing: 0.9em)
   #resume-item[
     Built C++11 microservices for the banking and exchange subsystem of a cryptocurrency mining pool:
     #pad(left: 1em)[
