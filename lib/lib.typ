@@ -281,12 +281,21 @@
 #let coverletter(signature: none, ..args) = {
   let named = args.named()
   let author = named.at("author", default: (:))
+  let lang = named.at("language", default: "en")
 
   if signature == none and author.at("signature", default: none) == none {
     let alignment = named.at("signature-alignment", default: left)
     let padding = named.at("signature-padding", default: (top: 1em))
+
+    // ugly hack
+    let closing-words = (
+      en: "Sincerely,",
+      nl: "Met vriendelijke groet,",
+    )
+    let closing-word = closing-words.at(lang, default: "Sincerely,")
+
     signature = align(alignment, pad(..padding)[
-      #text(weight: "light")[Sincerely,] \
+      #text(weight: "light")[#closing-word] \
       #text(weight: "bold")[#author.firstname #author.lastname]
     ])
   }
