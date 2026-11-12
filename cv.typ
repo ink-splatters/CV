@@ -120,12 +120,15 @@
 ))
 
 #my-resume-skill-section("Platform & Infrastructure")
-#my-resume-skill-item("Bare-metal/edge", (
+#my-resume-skill-item("Bare metal / Neocloud", (
+  "TPM 2.0/Keylime",
   "iPXE",
-  "Matchbox (Terraform provider)",
-  "Flatcar/systemd-sysext",
-  "Keylime (TPM 2.0 attestation)",
-  "FaaS",
+  "Flatcar",
+  "Tinkerbell/HookOS/BMC control",
+  "Cluster API (CAPI/CAPT)",
+  "Kamaji hosted control planes",
+  "Confidential Containers (CoCo)/Trustee",
+  "SPIRE/SPIFFE",
 ))
 #my-resume-skill-item("Cloud", (
   "AWS (EC2/ECS/Lambda)",
