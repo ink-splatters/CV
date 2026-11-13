@@ -124,7 +124,7 @@
   "TPM 2.0/Keylime",
   "iPXE",
   "Flatcar",
-  "Tinkerbell/HookOS/BMC control",
+  "Tinkerbell/HookOS/BMC/Redfish",
   "Cluster API (CAPI/CAPT)",
   "Kamaji hosted control planes",
   "Confidential Containers (CoCo)/Trustee",
