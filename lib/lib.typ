@@ -91,12 +91,14 @@
 )
 
 /// Describes a contribution for contributions(). Logo artwork can be optically
-/// sized within the section's fixed 28pt slot without changing text alignment.
+/// sized and shifted within the section's fixed 28pt slot without changing
+/// text alignment.
 #let contribution-entry(
   name,
   url,
   logo,
   logo-size: contribution-logo-slot,
+  logo-offset: 0pt,
   reference: "",
   reference-url: none,
   description: "",
@@ -116,7 +118,10 @@
   (
     name: name,
     url: url,
-    logo: image(logo, width: logo-size, height: logo-size, fit: "contain"),
+    logo: move(
+      dy: logo-offset,
+      image(logo, width: logo-size, height: logo-size, fit: "contain"),
+    ),
     repository: repository,
     description: description,
     body: body,

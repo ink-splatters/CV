@@ -9,13 +9,13 @@
     linkedin: "peter-asanov",
     phone: "+31629598355",
     address: "Almere, The Netherlands",
-    positions: ("Senior Software Engineer",),
+    positions: ("Senior Software Engineer | DevSecOps",),
   ),
 )
 
 = About
 #about[
-  Senior software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture to production, with a strong focus on security. Contributor to widely used open-source projects.
+  Software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture to production, with a strong focus on security. Contributor to widely used open-source projects.
 ]
 
 = Skills
@@ -153,7 +153,6 @@
   "Strimzi",
   "CloudNativePG",
   "cert-manager",
-  "Trivy Operator",
   "Prometheus Operator",
   "kube-state-metrics",
 ))
@@ -204,6 +203,65 @@
   "EdDSA",
   "Ristretto",
   "ZK-SNARKs/ZK-STARKs",
+))
+#my-resume-skill-section("DevSecOps")
+#my-resume-skill-item("SAST & Secrets", (
+  "CodeQL",
+  "Semgrep",
+  "SonarQube",
+  "Clang Static Analyzer",
+  "Gitleaks",
+  "TruffleHog",
+))
+#my-resume-skill-item("SCA, Supply Chain & SBOM", (
+  "Snyk",
+  "OSV-Scanner",
+  "Syft/Grype (CycloneDX/SPDX)",
+  "Sigstore/Cosign",
+  "SLSA provenance",
+  "in-toto",
+))
+#my-resume-skill-item("IaC, OCI & Cloud (CSPM)", (
+  "Trivy / Trivy Operator",
+  "Checkov",
+  "KubeLinter",
+  "OPA/Gatekeeper",
+  "Kyverno",
+  "Prowler",
+  "Cloud Custodian",
+  "kube-bench",
+))
+#my-resume-skill-item("DAST, IAST & RASP", (
+  "OWASP ZAP",
+  "Nuclei",
+  "Burp Suite",
+  "Schemathesis",
+  "Contrast Security (IAST/RASP)",
+))
+#my-resume-skill-item("Runtime Detection", (
+  "Falco",
+  "Cilium Tetragon (eBPF)",
+  "auditd",
+))
+#my-resume-skill-item("ASPM & Vuln Mgmt", (
+  "DefectDojo",
+  "Dependency-Track",
+  "GitHub Advanced Security",
+))
+#my-resume-skill-item("Offensive Security", (
+  "Frida (contributor)",
+  "Objection",
+  "Nmap/NSE",
+  "MobSF",
+  "Ghidra/radare2",
+))
+#my-resume-skill-item("Fuzzing, Sanitizers & Fault Injection", (
+  "AFL++ (AFL_FRIDA_MODE)",
+  "libFuzzer",
+  "ASan/UBSan",
+  "ClusterFuzz",
+  "DBI runtime fault injection",
+  "Chaos Mesh",
 ))
 
 #my-resume-skill-section("Data")
@@ -257,6 +315,7 @@
   "API interoperability",
 ))
 
+
 = FOSS contributions
 
 #contributions((
@@ -265,11 +324,25 @@
     "https://github.com/tailscale/tailscale",
     "/assets/tailscale.svg",
     logo-size: 22pt,
+    logo-offset: -2pt,
     reference: "tailscale/tailscale",
     reference-url: "https://github.com/tailscale/tailscale",
     description: "Zero Trust identity-based connectivity platform",
   )[
     - Unix-domain socket support for Tailscale Serve, exposing local HTTP services over the tailnet without a TCP bridge.
+  ],
+  contribution-entry(
+    "FЯIDA",
+    "https://github.com/frida/frida-core",
+    "/assets/frida.svg",
+    logo-offset: -8pt,
+    reference: "frida/frida-core",
+    description: "Dynamic instrumentation toolkit. Compiler lifecycle fixes:",
+  )[
+    - stop `WatchSession` on dispose;
+    - hold session lock during watch start;
+    - make disposal terminal, so a queued rebuild can't recreate a context after the delegates are gone;
+    - release the delegates on failed construction.
   ],
   contribution-entry(
     "ipsw",
@@ -279,12 +352,12 @@
     description: "iOS/macOS Research Swiss Army Knife",
   )[
     - dyld shared-cache fixes: address mapping, v4 rebasing and v5 pointer decoding.
-
     - Objective-C metadata parsing and ExclaveKit runtime resolution.
-
     - C++ symbol demangling for compiler-outlined cold functions.
   ],
 ))
+
+#pagebreak()
 
 = Work Experience
 
