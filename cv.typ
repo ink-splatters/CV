@@ -9,13 +9,13 @@
     linkedin: "peter-asanov",
     phone: "+31629598355",
     address: "Almere, The Netherlands",
-    positions: ("Senior Software Engineer | DevSecOps",),
+    positions: ("Senior Software Engineer | DevSecOps | Architect",),
   ),
 )
 
 = About
 #about[
-  Software engineer with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems. Builds and owns cloud, on-premises, and edge platforms from architecture to production, with a strong focus on security. Contributor to widely used open-source projects.
+  Software engineer and architect with 20+ years of experience, including over a decade building real-time, data-intensive, and mission-critical distributed systems across finance, data, and AI. Builds and owns cloud, on-premises, and edge platforms from architecture to production, with a strong focus on security. Experience architecting neocloud infrastructure for confidential computing. Open-source contributor.
 ]
 
 = Skills
@@ -316,7 +316,7 @@
 ))
 
 
-= FOSS contributions
+= Open-source contributions
 
 #contributions((
   contribution-entry(
