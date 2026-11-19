@@ -9,7 +9,7 @@
     linkedin: "peter-asanov",
     phone: "+31629598355",
     address: "Almere, The Netherlands",
-    positions: ("Senior Software Engineer | DevSecOps | Architect",),
+    positions: ("Senior Software Engineer", "DevSecOps", "Architect"),
   ),
 )
 
